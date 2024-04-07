@@ -1,0 +1,190 @@
+/****menu Dashboard******/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 115px;
+    height: 100vh;
+    padding: 0 1.7rem;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background: rgba(113, 99, 186, 255);
+}
+
+.sidebar:hover {
+    width: 240px;
+    transition: 0.5s;
+}
+
+.logo {
+    display: flex;
+    align-items:center;
+    justify-content: center; /* Centra el logo horizontalmente */
+    padding: 0; /* Espaciado alrededor del logo */
+    margin-bottom: 10px; /* Espacio entre el logo y el menú */
+}
+
+.logo img {
+    width: 100px;
+    height: auto; /* Altura automática */
+    margin-right: 10px; /* Espacio a la derecha del logo */
+
+}
+
+.menu {
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 1rem;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover {
+    background: #e0e0e058;
+
+}
+
+.menu a {
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu a span {
+    overflow: hidden;
+}
+
+.menu a i {
+    font-size: 1.2rem;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/*fin Css Menu Dashboard*/
+
+/*******responsive Menu*********/
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* El menú ocupa todo el ancho en dispositivos pequeños */
+    
+    }
+    .nav {
+        align-items: center; /* Alinea verticalmente el contenido */
+    }
+
+    .nav-links {
+        flex: 1; /* Ocupa todo el espacio disponible */
+        text-align: center; /* Centra el texto horizontalmente */
+    }
+
+    .nav-links > a {
+        display: block; /* Convierte los enlaces en bloques para centrarlos */
+        padding: 10px 0; /* Añade espacio entre los enlaces */
+    }
+}
+/*********fin responsive Menu*******/
+
+
+/********Navbar***********/
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0px;
+    font-family: 'segoe ui';
+  }
+  
+  .nav {
+    height: 50px;
+    width: 100%;
+    background-color: rgba(113, 99, 186, 255);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+  }
+  
+  .nav > .nav-header {
+    display: inline;
+    flex: 1;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 10px 10px 10px;
+  }  
+  .nav > .nav-links {
+    display: flex;
+    float: right;
+    gap: 10px;
+    font-size: 18px;
+    justify-content: flex-end;
+  }
+  
+  .nav > .nav-links > a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: #efefef;
+  }
+  
+  .nav > .nav-links > a:hover {
+    background-color: #e0e0e058;
+  }
+  
+  .nav > #nav-check {
+    display: none;
+  }
+  .user-profile {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    background-color: #ccc;
+    margin-left: 10px; 
+    margin-right: 10px; 
+    margin-top: 10px;
+    margin-block-end: 10px;
+}
+
+  /* Estilos para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .nav {
+        display: none; /* Oculta el navbar en dispositivos con un ancho de pantalla de 768px o menos */
+    }
+}
+/*******FIN NAVBAR******/
