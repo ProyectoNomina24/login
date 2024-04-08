@@ -4,6 +4,7 @@ body {
     padding: 0;
     font-family: 'Roboto', sans-serif;
     text-align: center;
+    
   }
   
   /* Input Forms*/
@@ -48,3 +49,17 @@ body {
  body .link-1{
     text-decoration: none;
   }
+
+  
+ 
+  .calc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+
+ 

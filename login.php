@@ -40,6 +40,8 @@
       <p> <?= $message ?></p>
     <?php endif; ?>
 
+   
+
     <h1>Inicia sesión</h1>
     <span>O <a href="registro.php">Registrate</a></span>
 
