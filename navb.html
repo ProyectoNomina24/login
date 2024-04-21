@@ -6,9 +6,11 @@
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="/CSS2/style.css">
+<link rel="stylesheet" href="/CSS2/estilosModal.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <body>
+  <!--INICIO NAVBAR-->
     <div class="nav" id="main-nav">
         <input type="checkbox" id="nav-check">
         <div class="nav-btn">
@@ -24,11 +26,20 @@
           <a href="#" target="_blank"><i class="fas fa-cog"></i></a>
           <a href="#" target="_blank"><i class="fa-solid fa-volume-off"></i></a>
           <a href="#" target="_blank"><i class="fa-regular fa-bell"></i></a>
-          <div class="user-profile">
+          <div class="user-profile" id="myProfile">
         </div>
             
         </div>
       </div>
+      <!--FIN NAVBAR-->
+
+      <!--MODAL IMAGEN PERFIL-->
+      <div class="modal" id="myModal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage" src="ruta_de_la_imagen.jpg" alt="Imagen de perfil">
+    </div>
+
+
    <script src="menu.js"></script>
 </body>
 </html>

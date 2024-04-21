@@ -1,0 +1,28 @@
+.modal {
+    display: none; /* Oculta el modal por defecto */
+    position: fixed; /* Permite que el modal flote por encima del contenido */
+    z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco con transparencia */
+    overflow: auto; /* Permite desplazarse si el contenido es más grande que el modal */
+}
+
+.modal-content {
+    margin: auto; /* Centra el contenido del modal */
+    display: block;
+    max-width: 80%; /* Limita el ancho del contenido del modal */
+    max-height: 80%; /* Limita la altura del contenido del modal */
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: black; /* Color del icono de cierre */
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}

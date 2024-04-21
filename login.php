@@ -31,25 +31,40 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/stilos.css">
+    <link rel="stylesheet" href="CSS2/Login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
-    <?php require 'partials/header.php' ?>
-
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
 
    
+<div class="wrapper">
 
-    <h1>Inicia sesión</h1>
-    <span>O <a href="registro.php">Registrate</a></span>
-
-    <form action="login.php" method="POST">
+  <h1>Bienvenido!</h1>
+  
+  <form action="login.php" method="POST">
+    <div class="input-box">
       <input name="email" type="text" placeholder="Ingrese su correo">
-      <input name="password" type="password" placeholder="Ingrese su contrasena">
-      <input type="submit" value="Enviar">
-    </form>
+      <i class="bx bxs-user"></i>
+    </div>
+    <div class="input-box">
+      <input name="password" type="password" placeholder="Ingrese su contraseña">
+      <i class="bx bxs-lock-alt"></i>
+    </div>
+    <div class="remember-forgot">
+      <label><input type="checkbox">Remember me</label>
+      <a href="#">Forgot password?</a>
+    </div>
+    <div class="register-link">
+        <p>Don't have account? <a href="registro.php">Register</a></p>
+    </div>
+    <br>
+    <input class="btn" type="submit" value="Enviar">
+  </form>
+</div>
+<form action="">
+      
+
+        </form>
   </body>
 </html>
 </html>

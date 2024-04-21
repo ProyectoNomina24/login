@@ -59,5 +59,23 @@ function cargarMenu() {
 // Llamada a la función cargarMenu al cargar la página
 window.onload = cargarMenu;
 
+//Codigo para desplegar un modal al darle click a la imagen de perfil
+document.addEventListener("DOMContentLoaded", function() {
+    var profile = document.getElementById("myProfile");
+    var modal = document.getElementById("myModal");
+    var modalImage = document.getElementById("modalImage");
+    var closeButton = document.getElementsByClassName("close")[0];
+
+    profile.addEventListener("click", function() {
+        modal.style.display = "block";
+    });
+
+    closeButton.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+});
+
+  
+
 
 
