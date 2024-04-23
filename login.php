@@ -61,10 +61,6 @@
     <input class="btn" type="submit" value="Enviar">
   </form>
 </div>
-<form action="">
-      
-
-        </form>
   </body>
 </html>
 </html>

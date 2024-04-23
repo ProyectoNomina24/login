@@ -4,20 +4,25 @@ require 'database.php';
 
 $message = '';
 
-if (!empty($_POST['nombre']) || !empty($_POST['apellido']) || !empty($_POST['email'])  || !empty($_POST['password'])) {
-  $sql = "INSERT INTO usuario (nombre,apellido,email, password) VALUES (:nombre,:apellido,:email, :password)";
+if (!empty($_POST['nombre']) || !empty($_POST['apellido']) || !empty($_POST['identificacion']) || !empty($_POST['email'])  || !empty($_POST['password'])) {
+  $sql = "INSERT INTO usuario (nombre,apellido,identificacion,email, password) VALUES (:nombre,:apellido,:identificacion,:email, :password)";
   $stmt = $conn->prepare($sql);
   $stmt->bindParam(':nombre', $_POST['nombre']);
   $stmt->bindParam(':apellido', $_POST['apellido']);
+  $stmt->bindParam(':identificacion', $_POST['identificacion']);
   $stmt->bindParam(':email', $_POST['email']);
   $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
   $stmt->bindParam(':password', $password);
-
+try{
+  
   if ($stmt->execute()) {
     $message = 'Usuario creado correctamente';
   } else {
     $message = 'Lo siento, no se puedo crear su cuenta, verifique nuevamente';
   }
+}catch (PDOException $e){
+  $message = 'Error al ejecutar la consulta' . $e->getMessage();
+}
 }
 ?>
 <!DOCTYPE html>
@@ -31,6 +36,12 @@ if (!empty($_POST['nombre']) || !empty($_POST['apellido']) || !empty($_POST['ema
 </head>
 
 <body>
+  
+  <?php if (!empty($message)):?>
+    <p><?= $message?></p>
+    <?php endif; ?>
+    <br>
+    <br>
   <div class="login-box">
 
     <h2>Registra tu usuario</h2>
@@ -39,7 +50,7 @@ if (!empty($_POST['nombre']) || !empty($_POST['apellido']) || !empty($_POST['ema
       <p>O <a href="login.php">Inicia sesión</a></p>
       </div>
       <br>
-    <form="registro.php" method="POST">
+    <form action="registro.php" method="POST">
       <div class="user-box">
         <input name="nombre" type="text" required="">
         <label>Ingrese su nombre</label>
@@ -49,6 +60,10 @@ if (!empty($_POST['nombre']) || !empty($_POST['apellido']) || !empty($_POST['ema
         <label>Ingrese su apellido</label>
       </div>
       <div class="user-box">
+        <input name="identificacion" type="number" required="">
+        <label>Ingrese su identificacion</label>
+      </div>
+      <div class="user-box">
         <input name="email" type="text" required="">
         <label>Ingrese su correo</label>
       </div>
@@ -56,7 +71,7 @@ if (!empty($_POST['nombre']) || !empty($_POST['apellido']) || !empty($_POST['ema
         <input name="password" type="password" required="">
         <label>Ingrese su contraseña</label>
       </div>
-      <button class="custom-btn btn"><span>Enviar</span></button>
+      <button type ="submit" value ="Enviar" class="custom-btn btn"><span>Enviar</span></button>
       </form>
   </div>
 </body>
