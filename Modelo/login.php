@@ -5,7 +5,7 @@
   if (isset($_SESSION['usuario_id'])) {
     header('Location: /Nomina');
   }
-  require 'database.php';
+  require '../Controler/database.php';
 
   if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $records = $conn->prepare('SELECT id, email, password FROM usuario WHERE email = :email');
@@ -17,7 +17,7 @@
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
       $_SESSION['usuario_id'] = $results['id'];
-      header("Location: /Nomina");
+      header("Location: ../Vista/calcular.php");
     } else {
       $message = 'Lo siento, sus datos no coinciden';
     }
@@ -31,7 +31,7 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="CSS2/Login.css">
+    <link rel="stylesheet" href="../CSS2/Login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>

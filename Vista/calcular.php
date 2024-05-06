@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  require './Controler/database.php';
+  require '../Controler/database.php';
 
   if (isset($_SESSION['usuario_id'])) {
     $records = $conn->prepare('SELECT id, email, password FROM usuario WHERE id = :id');
@@ -24,9 +24,9 @@
     <title>Bienvenido a Mynomina</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://kit.fontawesome.com/162e2e5f40.js"></script>
-    <link rel="stylesheet" href="CSS/stilos.css">
-    <link rel="stylesheet" href="CSS/calc.css">
-    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/stilos.css">
+    <link rel="stylesheet" href="../CSS/calc.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
   </head>
   <body>
   <div id="menuContainer" class="menu-container"></div>
@@ -83,30 +83,68 @@
     <?php if(!empty($user)): ?>
       <br> Bienvenido: <?= $user['email']; ?>
       <br>
-
+<br>
       
-     
+      <h2>Contenido</h2>
+
+      <br>
+
+<!-- Enlace 1 -->
+<a class="links" href="#" onclick="mostrarContenido('contenido1')">Liquidacion por Renuncia / </a>
+
+<!-- Enlace 2 -->
+<a class="links" href="#" onclick="mostrarContenido('contenido2')">Liquidacion por Terminacion de contrato</a>
+
+<!-- Contenedor de Contenido -->
+<div id="contenido1" style="display: none;">
 <nav class="calc">
 
-      <div id="formulario">
-  <h2>Calculadora de Nómina</h2>
-  <label for="fechaInicio">Fecha de Inicio:</label>
-  <input type="date" id="fechaInicio">
+<div id="formulario">
+<h2>Calculadora de Nómina</h2>
+<label for="fechaInicio">Fecha de Inicio:</label>
+<input type="date" id="fechaInicio">
 
-  <label for="fechaFinal">Fecha Final:</label>
-  <input type="date" id="fechaFinal">
+<label for="fechaFinal">Fecha Final:</label>
+<input type="date" id="fechaFinal">
 
-  <label for="auxilioTransporte">Auxilio de Transporte:</label>
-  <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte">
+<label for="auxilioTransporte">Auxilio de Transporte:</label>
+<input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte">
 
-  <label for="salarioMensual">Salario Mensual:</label>
-  <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
+<label for="salarioMensual">Salario Mensual:</label>
+<input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
 
-  <button onclick="calcularNomina()">Calcular Nómina</button>
+<button onclick="calcularNomina()">Calcular Nómina</button>
 
-  <div id="resultado"></div>
+<div id="resultado"></div>
 </div>
 </nav>
+</div>
+
+<div id="contenido2" style="display: none;">
+<nav class="calc">
+
+<div id="formulario">
+<h2>Calculadora de Nómina</h2>
+<label for="fechaInicio">Fecha de Inicio:</label>
+<input type="date" id="fechaInicio">
+
+<label for="fechaFinal">Fecha Final:</label>
+<input type="date" id="fechaFinal">
+
+<label for="auxilioTransporte">Auxilio de Transporte:</label>
+<input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte">
+
+<label for="salarioMensual">Salario Mensual:</label>
+<input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
+
+<button onclick="calcularNomina2()">Calcular Nómina</button>
+
+<div id="resultado2"></div>
+</div>
+</nav>
+</div>
+
+
 
 
                                 
@@ -114,23 +152,14 @@
 <br>
 <br>
       
-      <a class="link-1" href="salir.php">
+      <a class="link-1" href="../Vista/salir.php">
         Salir
       </a>
     <?php else: ?>
+        <?php endif; ?>
       <div id="container">
-    <h1 class="msjBienvenido" >Bienvenido</h1>
-    <br>
-    <h1 class="msjBienvenido" >Inicia sesión</h1>
-    <h1 class="msjBienvenido2" > o </h1>
-    <h1 class="msjBienvenido" >crea una cuenta con nosotros</h1>
-    <br>
-    <div id="containerBut">
-      <a class="link-1" href="./Modelo/login.php">Inicia sesión</a>
-      <a class="link-2" href="./Modelo/registro.php">Regístrate</a>
-
-    </div>
-    </div>
+ 
+    
     <footer>
         <div class="row">
             <div class="col">
@@ -173,7 +202,9 @@
         <hr>
         <p class="cop">My Nomina 2024 | All Rigths Reserved</p>
     </footer>
-    <?php endif; ?>
+    
   </body>
-<script src="JS/script.js"></script>
+<script src="../JS/script.js"></script>
+<script src="../JS/script2.js"></script>
+<script src="../JS/nomina.js"></script>
 </html>

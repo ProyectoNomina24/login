@@ -324,3 +324,6 @@ li:hover a.hasDropdown:after {
   }
 }
 /* End Responsive Menu */
+.links{
+  text-decoration: none;
+}

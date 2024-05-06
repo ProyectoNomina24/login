@@ -1,4 +1,4 @@
-function calcularNomina() {
+function calcularNomina2() {
     const fechaInicio = new Date(document.getElementById('fechaInicio').value);
     const fechaFinal = new Date(document.getElementById('fechaFinal').value);
     const auxilioTransporte = parseFloat(document.getElementById('auxilioTransporte').value);
@@ -6,7 +6,7 @@ function calcularNomina() {
   
     // Verificar si las fechas son válidas
     if (isNaN(fechaInicio.getTime()) || isNaN(fechaFinal.getTime())) {
-      document.getElementById('resultado').innerText = 'Por favor, introduce fechas válidas.';
+      document.getElementById('resultado2').innerText = 'Por favor, introduce fechas válidas.';
       return;
     }
   
@@ -19,8 +19,5 @@ function calcularNomina() {
       salarioTotal += auxilioTransporte;
     }
   
-    document.getElementById('resultado').innerText = `El salario total es: $${salarioTotal.toFixed(2)}`;
+    document.getElementById('resultado2').innerText = `El salario total es: $${salarioTotal.toFixed(2)}`;
   }
-
-
- 

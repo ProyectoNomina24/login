@@ -1,108 +1,49 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora de Nómina</title>
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-
-  #formulario {
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  label {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  input[type="date"],
-  input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #45a049;
-  }
-
-  #resultado {
-    margin-top: 20px;
-    font-weight: bold;
-  }
-</style>
+<title>Mostrar Contenido con JavaScript</title>
 </head>
 <body>
 
-<div id="formulario">
-  <h2>Calculadora de Nómina</h2>
-  <label for="fechaInicio">Fecha de Inicio:</label>
-  <input type="date" id="fechaInicio">
+<h2>Contenido</h2>
 
-  <label for="fechaFinal">Fecha Final:</label>
-  <input type="date" id="fechaFinal">
+<!-- Enlace 1 -->
+<a href="#" onclick="mostrarContenido('contenido1')">Liquidacion por Renuncia / </a>
 
-  <label for="auxilioTransporte">Auxilio de Transporte:</label>
-  <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte">
+<!-- Enlace 2 -->
+<a href="#" onclick="mostrarContenido('contenido2')">Liquidacion por Terminacion de contrato</a>
 
-  <label for="salarioMensual">Salario Mensual:</label>
-  <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
+<!-- Contenedor de Contenido -->
+<div id="contenido1" style="display: none;">
+  <h3>Contenido 1</h3>
+  <p>Este es el contenido 1 que se mostrará cuando se haga clic en el primer enlace.</p>
+</div>
 
-  <button onclick="calcularNomina()">Calcular Nómina</button>
-
-  <div id="resultado"></div>
+<div id="contenido2" style="display: none;">
+  <h3>Contenido 2</h3>
+  <p>Este es el contenido 2 que se mostrará cuando se haga clic en el segundo enlace.</p>
 </div>
 
 <script>
-function calcularNomina() {
-  const fechaInicio = new Date(document.getElementById('fechaInicio').value);
-  const fechaFinal = new Date(document.getElementById('fechaFinal').value);
-  const auxilioTransporte = parseFloat(document.getElementById('auxilioTransporte').value);
-  const salarioMensual = parseFloat(document.getElementById('salarioMensual').value);
+// Función para mostrar contenido
+function mostrarContenido(idContenido) {
+  // Ocultar todos los contenidos
+  var contenidos = document.querySelectorAll('div[id^="contenido"]');
+  contenidos.forEach(function(contenido) {
+    contenido.style.display = 'none';
+  });
 
-  // Verificar si las fechas son válidas
-  if (isNaN(fechaInicio.getTime()) || isNaN(fechaFinal.getTime())) {
-    document.getElementById('resultado').innerText = 'Por favor, introduce fechas válidas.';
-    return;
+  // Mostrar el contenido específico
+  var contenidoMostrar = document.getElementById(idContenido);
+  if (contenidoMostrar) {
+    contenidoMostrar.style.display = 'block';
   }
-
-  // Calcular días trabajados
-  const diasTrabajados = (fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24);
-
-  // Calcular salario (incluyendo auxilio de transporte si aplica)
-  let salarioTotal = diasTrabajados * (salarioMensual / 30);
-  if (auxilioTransporte && auxilioTransporte > 0) {
-    salarioTotal += auxilioTransporte;
-  }
-
-  document.getElementById('resultado').innerText = `El salario total es: $${salarioTotal.toFixed(2)}`;
 }
 </script>
-<?php require 'partials/header.php'?>
+
 </body>
 </html>
+
 
