@@ -23,7 +23,11 @@
     border: 1px solid #ccc;
     padding: 8px;
     text-align: center;
-    color: aliceblue;
+    
+}
+
+#tablaResultados td {
+    color: white;
 }
 
 #tablaResultados th {
