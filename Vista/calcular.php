@@ -26,7 +26,14 @@
     <script src="https://kit.fontawesome.com/162e2e5f40.js"></script>
     <link rel="stylesheet" href="../CSS/stilos.css">
     <link rel="stylesheet" href="../CSS/calc.css">
+    <link rel="stylesheet" href="../CSS/resultados.css">
     <link rel="stylesheet" href="../CSS/footer.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
+
+
   </head>
   <body>
   <div id="menuContainer" class="menu-container"></div>
@@ -78,7 +85,7 @@
   </ul>
 </nav>
 
-<!-- End Navigation Bar -->
+
 
     <?php if(!empty($user)): ?>
       <br> Bienvenido: <?= $user['email']; ?>
@@ -89,36 +96,79 @@
 
       <br>
 
-<!-- Enlace 1 -->
-<a class="links" href="#" onclick="mostrarContenido('contenido1')">Liquidacion por Renuncia / </a>
 
-<!-- Enlace 2 -->
-<a class="links" href="#" onclick="mostrarContenido('contenido2')">Liquidacion por Terminacion de contrato</a>
+<a class="links" href="#" onclick="mostrarContenido('contenido1')">Liquidacion por Terminacion de contrato / </a>
+<a class="links" href="#" onclick="mostrarContenido('contenido2')">Liquidacion por Renuncia</a>
 
-<!-- Contenedor de Contenido -->
+<br><br>
+
 <div id="contenido1" style="display: none;">
+
+
 <nav class="calc">
+    <div id="formulario">
+        <h2>Calculadora de Nómina</h2>
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" id="fechaInicio">
 
-<div id="formulario">
-<h2>Calculadora de Nómina</h2>
-<label for="fechaInicio">Fecha de Inicio:</label>
-<input type="date" id="fechaInicio">
+        <label for="fechaFinal">Fecha Final:</label>
+        <input type="date" id="fechaFinal">
 
-<label for="fechaFinal">Fecha Final:</label>
-<input type="date" id="fechaFinal">
+        <label for="auxilioTransporte">Auxilio de Transporte:</label>
+        <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte">
 
-<label for="auxilioTransporte">Auxilio de Transporte:</label>
-<input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte">
+        <label for="diastrabajadossemestre">Días trabajados en el semestre:</label>
+        <input type="number" id="diastrabajadossemestre" placeholder="Ingrese sus días trabajados en el semestre actual">
 
-<label for="salarioMensual">Salario Mensual:</label>
-<input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
+        <label for="salarioMensual">Salario Mensual:</label>
+        <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
 
-<button onclick="calcularNomina()">Calcular Nómina</button>
+        <button onclick="calcularNomina()">Calcular Nómina</button>
+    </div>
 
-<div id="resultado"></div>
-</div>
+   
+    <div id="resultados">
+        <h2>Resultados</h2>
+        <table id="tablaResultados">
+            <thead>
+                <tr>
+                    <th>Cesantías</th>
+                    <th>Intereses sobre Cesantías</th>
+                    <th>Prima de Servicios</th>
+                    <th>Vacaciones</th>
+                    <th>Total a Pagar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="cesantiasTotalResult" ></td>
+                    <td id="interesesCesantiasTotalResult"></td>
+                    <td id="primaServiciosTotalResult"></td>
+                    <td id="vacacionesTotalResult"></td>
+                    <td id="salarioTotalResult"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </nav>
+
+
+
+
+
 </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
 
 <div id="contenido2" style="display: none;">
 <nav class="calc">
@@ -137,12 +187,13 @@
 <label for="salarioMensual">Salario Mensual:</label>
 <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
 
-<button onclick="calcularNomina2()">Calcular Nómina</button>
+<button onclick="calcularNomina2()" target="blank" >Calcular Nómina</button>
 
 <div id="resultado2"></div>
 </div>
 </nav>
 </div>
+
 
 
 
@@ -205,6 +256,8 @@
     
   </body>
 <script src="../JS/script.js"></script>
+<script src="../JS/generar.js"></script>
 <script src="../JS/script2.js"></script>
 <script src="../JS/nomina.js"></script>
+
 </html>

@@ -1,49 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mostrar Contenido con JavaScript</title>
-</head>
-<body>
+function calcularNomina() {
+  // Obtener los valores de los campos de entrada
+  const fechaInicio = new Date(document.getElementById('fechaInicio').value);
+  const fechaFinal = new Date(document.getElementById('fechaFinal').value);
+  const auxilioTransporte = parseFloat(document.getElementById('auxilioTransporte').value);
+  const diasSemestre = parseInt(document.getElementById('diastrabajadossemestre').value);
+  const salarioMensual = parseFloat(document.getElementById('salarioMensual').value);
+  
 
-<h2>Contenido</h2>
-
-<!-- Enlace 1 -->
-<a href="#" onclick="mostrarContenido('contenido1')">Liquidacion por Renuncia / </a>
-
-<!-- Enlace 2 -->
-<a href="#" onclick="mostrarContenido('contenido2')">Liquidacion por Terminacion de contrato</a>
-
-<!-- Contenedor de Contenido -->
-<div id="contenido1" style="display: none;">
-  <h3>Contenido 1</h3>
-  <p>Este es el contenido 1 que se mostrará cuando se haga clic en el primer enlace.</p>
-</div>
-
-<div id="contenido2" style="display: none;">
-  <h3>Contenido 2</h3>
-  <p>Este es el contenido 2 que se mostrará cuando se haga clic en el segundo enlace.</p>
-</div>
-
-<script>
-// Función para mostrar contenido
-function mostrarContenido(idContenido) {
-  // Ocultar todos los contenidos
-  var contenidos = document.querySelectorAll('div[id^="contenido"]');
-  contenidos.forEach(function(contenido) {
-    contenido.style.display = 'none';
-  });
-
-  // Mostrar el contenido específico
-  var contenidoMostrar = document.getElementById(idContenido);
-  if (contenidoMostrar) {
-    contenidoMostrar.style.display = 'block';
+  // Verificar si las fechas son válidas
+  if (isNaN(fechaInicio.getTime()) || isNaN(fechaFinal.getTime())) {
+      document.getElementById('salarioTotalResult').innerText = 'Por favor, introduce fechas válidas.';
+      return;
   }
+
+  // Calcular los días trabajados
+  const diasTrabajados = (fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24);
+
+  // Calcular Cesantías
+  const cesantias = ((salarioMensual + auxilioTransporte) * diasTrabajados) / 360;
+
+  // Calcular Intereses sobre cesantías
+  const interesesCesantias = (cesantias * diasTrabajados * 0.12) / 360;
+
+  // Calcular Prima de servicios
+  const primaServicios = (salarioMensual * diasSemestre) / 360;
+
+  // Calcular Vacaciones
+  const vacaciones = (salarioMensual * diasTrabajados) / 720;
+
+  // Calcular Salario Total
+  const salarioTotal = cesantias + interesesCesantias + primaServicios + vacaciones;
+
+  // Mostrar los resultados en los elementos HTML
+  document.getElementById("salarioTotalResult").innerText = "Salario Total: $" + salarioTotal.toFixed(2);
+
+  // Crear un nuevo documento PDF
+ 
 }
-</script>
-
-</body>
-</html>
-
-
