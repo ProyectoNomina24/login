@@ -31,12 +31,13 @@
   <body>
   <div id="menuContainer" class="menu-container"></div>
 
-   <!-- Start Navigation Bar -->
-<div class="mobile-menu">
-  <i class="fa fa-bars fa-3x js-menu-icon"></i>
-</div>
+    <!-- Start Navigation Bar -->
 <nav class="navbar js-navbar">
   <ul class="menu">
+    <div class="logo-container">
+      <img class="logoM" src="/imagenes/moneda.png" alt="">
+        <p class="text-logo">My Nomina</p>
+      </div>
     <li>
       <a class="hasDropdown" href="#">Funciones <i class="fa fa-angle-down"></i></a>
 
