@@ -109,6 +109,7 @@ body {
 
 .link-1:hover {
   background-color:#FA289E;
+
 }
 
 .link-2{
@@ -119,6 +120,9 @@ body {
   padding: 10px 20px;
   border-radius: 5px;
   margin-top: 10px;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
 }
 
 .link-2:hover {
@@ -138,10 +142,79 @@ body {
   vertical-align: middle; /* Alinea verticalmente si es necesario */
 }
 /******FIN BOTONES******/
+/*****RESPONSIVE MENJSAE BIENVENIDO Y BOTONES ******/
+@media screen and (max-width: 768px) {
+  #container {
+    padding: 10px;
+    padding-top: 300px;
+  }
 
+  .msjBienvenido, .msjBienvenido2 {
+    font-size: 1.5rem;
+  }
+
+  .link-1, .link-2 {
+    margin-bottom: 10px;
+  }
+}
 
 
 /* INICIO NAVBAR */
+.logo-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+  margin-top: 0;
+}
+/* Ajusta el espacio entre el logo y el menú */
+.logo-container, .menu {
+  margin-left: 20px; /* Ajusta el margen izquierdo para dejar espacio para el logotipo */
+}
+
+.logoM {
+  width: 80px; /* Ajusta el ancho de la imagen según sea necesario */
+  height: auto; /* Altura automática */
+}
+
+.text-logo {
+  margin: 0; /* Elimina cualquier margen */
+  font-size: 18px; /* Ajusta el tamaño del texto según sea necesario */
+  font-weight: bold; /* Ajusta el grosor de la fuente según sea necesario */
+  color: #fff; /* Color del texto */
+  margin-right: 10px;
+}
+
+.menu {
+  display: flex; /* Hace que los elementos del menú se muestren en línea */
+  align-items: center; /* Alinea verticalmente los elementos */
+  list-style: none; /* Elimina los puntos de la lista */
+}
+
+.menu li {
+  margin-right: 10px; /* Ajusta el margen entre elementos del menú según sea necesario */
+  margin-left: 10px;
+}
+.menu a {
+  padding: 10px 5px; /* Reducimos el relleno de los enlaces */
+}
+
+/* Ajusta el espacio entre el logo y el menú */
+.menu {
+  margin-left: auto; /* Mueve el menú al extremo derecho */
+}
+
+/* Ajusta el espacio entre el logo y el menú en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .menu {
+    margin-left: 10px; /* Ajusta el margen izquierdo del menú en pantallas pequeñas */
+  }
+}
+/* Ajusta el espacio entre el logo y el menú en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .logo-container, .menu {
+    margin-left: 10px; /* Ajusta el margen izquierdo en pantallas pequeñas */
+  }
+}
+
 
 .navbar {
   width: 100%; /* Tomar todo el ancho de la pantalla */
@@ -169,7 +242,7 @@ body {
 .navbar .menu a {
   position: relative;
   display: inline-flex;
-  padding: 20px;
+  padding: 15px;
   text-decoration: none;
   color: #fff;
   flex: 1;
@@ -214,7 +287,7 @@ li:hover a.hasDropdown:after {
 .container {
   position: absolute;
   z-index: 1;
-  top: 56px;
+  top: 80px;
   right: 0;
   left: 0;
   display: none;
@@ -246,7 +319,7 @@ li:hover a.hasDropdown:after {
   white-space: nowrap;
   text-decoration: underline;
   text-overflow: ellipsis;
-  color: #db6356;
+  color: #FA289E;
 }
 
 /* End Single Section Menu */
@@ -270,11 +343,8 @@ li:hover a.hasDropdown:after {
 
 /* End Multiple Section Menu */
 
-/* Start Responsive Menu */
 
-.mobile-menu {
-  display: none;
-}
+
 
 /* Start Responsive Menu */
 @media only screen and (max-width: 768px) {
@@ -324,7 +394,3 @@ li:hover a.hasDropdown:after {
   }
 }
 /* End Responsive Menu */
-.links{
-  text-decoration: none;
-  color: #eee;
-}

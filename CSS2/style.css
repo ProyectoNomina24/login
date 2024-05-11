@@ -13,7 +13,7 @@
 body {
     display: flex;
 }
-
+/**INICIO MENU DESPLEGABLE****/
 .sidebar {
     position: fixed;
     top: 0;
@@ -25,7 +25,7 @@ body {
     color: #fff;
     overflow: hidden;
     transition: all 0.5s linear;
-    background: rgba(113, 99, 186, 255);
+    background: #25283d;
 }
 
 .sidebar:hover {
@@ -63,7 +63,7 @@ body {
 }
 
 .menu li:hover {
-    background: #e0e0e058;
+    background: #FA289E;
 
 }
 
@@ -98,22 +98,37 @@ body {
 @media screen and (max-width: 768px) {
     .sidebar {
         width: 100%; /* El menú ocupa todo el ancho en dispositivos pequeños */
-    
+        transition: none; /* Desactiva la transición en pantallas pequeñas */
     }
+
+    .sidebar:hover {
+        width: 100%; /* Mantén el ancho en pantallas pequeñas */
+    }
+
+    /* Desactiva el efecto hover en el menú desplegable */
+    .sidebar:hover .menu {
+        width: auto; /* Mantén el ancho automático en pantallas pequeñas */
+    }
+
+    /* Estilos para el navbar en pantallas pequeñas */
     .nav {
-        align-items: center; /* Alinea verticalmente el contenido */
+        display: block; /* Cambia a bloque para centrar verticalmente */
+        text-align: center; /* Centra horizontalmente los elementos */
     }
 
     .nav-links {
-        flex: 1; /* Ocupa todo el espacio disponible */
-        text-align: center; /* Centra el texto horizontalmente */
+        display: block; /* Cambia a bloque para centrar verticalmente */
+        padding: 10px 0; /* Añade espacio entre los enlaces */
     }
 
     .nav-links > a {
         display: block; /* Convierte los enlaces en bloques para centrarlos */
-        padding: 10px 0; /* Añade espacio entre los enlaces */
+        color: #ffffff; /* Ajusta el color del texto */
+        text-decoration: none; /* Elimina la decoración de texto */
     }
 }
+
+
 /*********fin responsive Menu*******/
 
 
@@ -126,14 +141,19 @@ body {
     margin: 0px;
     font-family: 'segoe ui';
   }
-  
+  #navbar-container{
+    width: 100%; /* Toma todo el ancho disponible */
+    position: fixed; /* Asegura que el navbar esté fijo en la pantalla */
+    top: 0;
+    left: 0;
+}
   .nav {
-    height: 50px;
+    height: 60px;
     width: 100%;
-    background-color: rgba(113, 99, 186, 255);
+    background-color: #25283d;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 70px;
     align-items: center;
   }
   
@@ -158,13 +178,16 @@ body {
   
   .nav > .nav-links > a {
     display: inline-block;
-    padding: 13px 10px 13px 10px;
+    padding: 10px 8px 10px 8px;
     text-decoration: none;
     color: #efefef;
+    margin: 8px 0;     /*margen para las opciones*/
+    border-radius: 6px; /*estas opciones afectan al color rosa de los iconos exactamente el borde */
   }
   
   .nav > .nav-links > a:hover {
-    background-color: #e0e0e058;
+    background-color: #FA289E;
+    cursor: pointer;
   }
   
   .nav > #nav-check {
