@@ -1,39 +1,44 @@
-function calcularNomina() {
-  // Obtener los valores de los campos de entrada
-  const fechaInicio = new Date(document.getElementById('fechaInicio').value);
-  const fechaFinal = new Date(document.getElementById('fechaFinal').value);
-  const auxilioTransporte = parseFloat(document.getElementById('auxilioTransporte').value);
-  const diasSemestre = parseInt(document.getElementById('diastrabajadossemestre').value);
-  const salarioMensual = parseFloat(document.getElementById('salarioMensual').value);
-  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/calc.css">
+    <title>Calculadora de Nómina</title>
+</head>
+<body>
+<nav class="calc">
+<h1>Calculadora de Nómina</h1>
+<div id="formulario">
+    <h2>Datos del Empleado</h2>
+    <label for="fechaInicio">Fecha de Inicio:</label>
+    <input type="date" id="fechaInicio" required>
 
-  // Verificar si las fechas son válidas
-  if (isNaN(fechaInicio.getTime()) || isNaN(fechaFinal.getTime())) {
-      document.getElementById('salarioTotalResult').innerText = 'Por favor, introduce fechas válidas.';
-      return;
-  }
+    <label for="fechaFinal">Fecha Final:</label>
+    <input type="date" id="fechaFinal" required> 
+    <label for="salarioMensual">Salario Mensual:</label>
+    <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual" required>
 
-  // Calcular los días trabajados
-  const diasTrabajados = (fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24);
+    <label for="auxilioTransporte">Auxilio de Transporte:</label>
+    <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte" required>
 
-  // Calcular Cesantías
-  const cesantias = ((salarioMensual + auxilioTransporte) * diasTrabajados) / 360;
+    <label for="pagosExtras">Pagos Extras:</label>
+    <input type="number" id="pagosExtras" placeholder="Ingrese los pagos extras">
 
-  // Calcular Intereses sobre cesantías
-  const interesesCesantias = (cesantias * diasTrabajados * 0.12) / 360;
+    <label for="otrasDeducciones">Otras Deducciones:</label>
+    <input type="number" id="otrasDeducciones" placeholder="Ingrese sus otras deducciones">
 
-  // Calcular Prima de servicios
-  const primaServicios = (salarioMensual * diasSemestre) / 360;
+    <button onclick="calcularMiNomina()">Calcular Nómina</button>
+</div>
 
-  // Calcular Vacaciones
-  const vacaciones = (salarioMensual * diasTrabajados) / 720;
+<div id="resultados">
+    <h2>Resultado</h2>
+    <div id="salarioNetoResult"></div>
+</div>
+</nav>
+<script src="../JS/otro.js">
 
-  // Calcular Salario Total
-  const salarioTotal = cesantias + interesesCesantias + primaServicios + vacaciones;
+</script>
 
-  // Mostrar los resultados en los elementos HTML
-  document.getElementById("salarioTotalResult").innerText = "Salario Total: $" + salarioTotal.toFixed(2);
-
-  // Crear un nuevo documento PDF
- 
-}
+</body>
+</html>

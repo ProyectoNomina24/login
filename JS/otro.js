@@ -14,7 +14,7 @@ function calcularMiNomina() {
   console.log("Días trabajados:", diasTrabajados);
 
   // Calcular el salario bruto
- 
+  const valorHora = 43333; // Valor por hora (por ejemplo)
   const salarioBruto = salarioMensual + auxilioTransporte;
 
   console.log("Salario bruto:", salarioBruto);
@@ -31,6 +31,6 @@ function calcularMiNomina() {
   console.log("Salario neto antes de redondeo:", salarioNeto);
 
   // Mostrar el resultado
-  document.getElementById('salarioNetoResult').innerText = "Salario neto: $" + salarioNeto.toFixed(2);
+  document.getElementById('salarioNetoResult').innerText = "Total a Pagar: $" + salarioNeto.toFixed(2);
   console.log("Salario neto después de redondeo:", salarioNeto.toFixed(2));
 }
