@@ -98,9 +98,10 @@
 
 
 <a class="links" href="#" onclick="mostrarContenido('contenido1')">Liquidacion por Terminacion de contrato / </a>
-<a class="links" href="#" onclick="mostrarContenido('contenido2')">Liquidacion por Renuncia</a>
+<a class="links" href="#" onclick="mostrarContenido('contenido2')">Calcula tu Nomina</a>
 
 <br><br>
+<br>
 
 <div id="contenido1" style="display: none;">
 
@@ -117,8 +118,8 @@
         <label for="auxilioTransporte">Auxilio de Transporte:</label>
         <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte">
 
-        <label for="diastrabajadossemestre">Días trabajados en el semestre:</label>
-        <input type="number" id="diastrabajadossemestre" placeholder="Ingrese sus días trabajados en el semestre actual">
+        <label for="pagosExtras">Pagos extras:</label>
+        <input type="number" id="pagosExtras" placeholder="Ingrese sus pagos extras">
 
         <label for="salarioMensual">Salario Mensual:</label>
         <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
@@ -161,38 +162,46 @@
 
 </div>
 
-
-
-
-
-
-
-
-
+<br>
+<br>
 
 <div id="contenido2" style="display: none;">
 <nav class="calc">
+<h1>Calculadora de Nómina</h1>
+    <div id="formulario">
+        <h2>Datos del Empleado</h2>
+        <label for="salarioMensual">Salario Mensual:</label>
+        <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual" required>
 
-<div id="formulario">
-<h2>Calculadora de Nómina</h2>
-<label for="fechaInicio">Fecha de Inicio:</label>
-<input type="date" id="fechaInicio">
+        <label for="auxilioTransporte">Auxilio de Transporte:</label>
+        <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte" required>
 
-<label for="fechaFinal">Fecha Final:</label>
-<input type="date" id="fechaFinal">
+        <label for="pagosExtras">Pagos Extras:</label>
+        <input type="number" id="pagosExtras" placeholder="Ingrese los pagos extras" required>
 
-<label for="auxilioTransporte">Auxilio de Transporte:</label>
-<input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte">
+        <label for="deducciones">Deducciones:</label>
+        <input type="number" id="deducciones" placeholder="Ingrese las deducciones" required>
 
-<label for="salarioMensual">Salario Mensual:</label>
-<input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" id="fechaInicio" required>
 
-<button onclick="calcularNomina2()" target="blank" >Calcular Nómina</button>
+        <label for="fechaFinal">Fecha Final:</label>
+        <input type="date" id="fechaFinal" required>
 
-<div id="resultado2"></div>
+        <button onclick="calcularNomina()">Calcular Nómina</button>
+    </div>
+
+    <div id="resultados">
+        <h2>Resultado</h2>
+        <div id="salarioNetoResult"></div>
+    </div>
+
+  </nav>
+ 
+
+
 </div>
-</nav>
-</div>
+<br><br>
 
 
 
@@ -255,9 +264,9 @@
     </footer>
     
   </body>
-<script src="../JS/script.js"></script>
+  <script src="../JS/calcular.js"></script>
+  <script src="../JS/calcular2.js"></script>
 <script src="../JS/generar.js"></script>
-<script src="../JS/script2.js"></script>
 <script src="../JS/nomina.js"></script>
 
 </html>
