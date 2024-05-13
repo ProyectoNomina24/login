@@ -1,28 +1,62 @@
-.modal {
-    display: none; /* Oculta el modal por defecto */
-    position: fixed; /* Permite que el modal flote por encima del contenido */
-    z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
-    left: 0;
+
+
+.modal-container{
+    display: flex;
+    background-color: rgba(0,0,0,0.2);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
     top: 0;
+    left: 0;
+    height: 100vh;
     width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco con transparencia */
-    overflow: auto; /* Permite desplazarse si el contenido es más grande que el modal */
+    margin-top: 60px;
+    margin-left: 50px;
+}
+.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+.modal{
+    background-color: #fff;
+    width: 800px;
+    margin-right: 20px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.cerrar-modal{
+    display: flex;
+  align-items: center;
+  /*centra horizontalmente*/
+  padding: 10px 20px;
+  /* Ajusta el relleno */
+  border: none;
+  /* Elimina el borde */
+  background-color: #FA289E;
+  margin-left: 40%;/*margen hacia la derecha*/
+  margin-top: 20px;
+  /* Color de fondo */
+  color: #fff;
+  /* Color de texto */
+  border-radius: 5px;
+  /* Agrega bordes redondeados */
+  cursor: pointer;
+  /* Cambia el cursor*/
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1)
+}
+.cerrar-modal:hover{
+    background-color: transparent; /* Cambio a fondo transparente */
+    border: 2px solid #FA289E; /* Añade el estilo de borde */
+    color: #FA289E;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1)
 }
 
-.modal-content {
-    margin: auto; /* Centra el contenido del modal */
-    display: block;
-    max-width: 80%; /* Limita el ancho del contenido del modal */
-    max-height: 80%; /* Limita la altura del contenido del modal */
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    color: black; /* Color del icono de cierre */
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-}

@@ -8,9 +8,9 @@ function cargarMenu() {
         </div>
             
                 <li>
-                    <a href="#">
-                        <i class="fa-solid fa-money-bill-wave"></i>
-                        <span>Calcular</span>
+                    <a href="../Vista/calcular.php">
+                    <i class="fas fa-sack-dollar"></i>
+                    <span>Liquidar</span>
                     </a>
                 </li>
                 <li>
@@ -21,8 +21,8 @@ function cargarMenu() {
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fas fa-sack-dollar"></i>
-                        <span>Liquidar</span>
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                        <span>Calcular</span>
                     </a>
                 </li>
                 <li>
@@ -44,10 +44,12 @@ function cargarMenu() {
                     </a>
                 </li>
                 <li class="logout">
-                    <a href="#">
+                    <a href="../Vista/salir.php">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Cerrar sesion</span>
                     </a>
+                    <?php else : ?>
+                    <?php endif; ?>
                 </li>
             </div>
         </div>

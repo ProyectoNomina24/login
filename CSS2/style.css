@@ -10,9 +10,6 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
-    display: flex;
-}
 /**INICIO MENU DESPLEGABLE****/
 .sidebar {
     position: fixed;

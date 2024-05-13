@@ -17,7 +17,7 @@
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
       $_SESSION['usuario_id'] = $results['id'];
-      header("Location: ../Vista/calcular.php");
+      header("Location: /navb.php");
     } else {
       $message = 'Lo siento, sus datos no coinciden';
     }
