@@ -32,7 +32,7 @@ function calcularNomina() {
   document.getElementById("vacacionesTotalResult").innerText = "$ " + vacaciones.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   document.getElementById("salarioTotalResult").innerText = "$ " + salarioTotalGlobal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   
-  
+  console.log(cesantias);
   
   }
   

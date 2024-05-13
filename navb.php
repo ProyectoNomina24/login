@@ -47,13 +47,17 @@ if (isset($_SESSION['usuario_id'])) {
       <a href="#" target="_blank"><i class="fas fa-cog"></i></a>
       <a href="#" target="_blank"><i class="fa-solid fa-volume-off"></i></a>
       <a href="#" target="_blank"><i class="fa-regular fa-bell"></i></a>
-      <div class="user-profile" id="myProfile">
+      <div class="user-profile"  id="myProfile">
       </div>
     </div>
   </div>
   <!--FIN NAVBAR-->
 
+ <center> <?php if (!empty($user)) : ?>
+    <br style=""><?= $user['email']; ?></center>
+
   <!--INICIO CALCULADORA-->
+  <div id="contenido1" style="display: none;">
   <nav class="calc">
     <div id="formulario">
     <i class="calk fas fa-sack-dollar">
@@ -103,16 +107,56 @@ if (isset($_SESSION['usuario_id'])) {
         </table>
         <button class="cerrar-modal" id="btn-close">cerrar</button>
       </div>
+      </div>
     </div>
   </nav>
 
 
+  <div id="contenido2" style="display: none;">
+  <nav class="calc">
+        <h1>Calculadora de Nómina</h1>
+        <div id="formulario">
+            <h2>Datos del Empleado</h2>
+            <label for="fechaInicio">Fecha de Inicio:</label>
+            <input type="date" id="fechaInicio" required>
+        
+            <label for="fechaFinal">Fecha Final:</label>
+            <input type="date" id="fechaFinal" required> 
+            <label for="salarioMensual">Salario Mensual:</label>
+            <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual" required>
+        
+            <label for="auxilioTransporte">Auxilio de Transporte:</label>
+            <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte" required>
+        
+            <label for="pagosExtras">Pagos Extras:</label>
+            <input type="number" id="pagosExtras" placeholder="Ingrese los pagos extras">
+        
+            <label for="otrasDeducciones">Otras Deducciones:</label>
+            <input type="number" id="otrasDeducciones" placeholder="Ingrese sus otras deducciones">
+        
+            <button onclick="calcularMiNomina()">Calcular Nómina</button>
+        </div>
+        
+        <div id="resultados">
+            <h2>Resultado</h2>
+            <div id="salarioNetoResult"></div>
+        </div>
+        </div>
+        </nav>
+
+<br>
+<br>
+  <?php else : ?>
+      <?php endif; ?>
+
+      
   
-  <script src="menu.js"></script>
-  <script src="../JS/calcular.js"></script>
-  <script src="../JS/calcular2.js"></script>
-  <script src="../JS/otro.js"></script>
-  <script src="../JS/modal.js"></script>
+  <script src="./menu.js"></script>
+  <script src="./JS/calcular.js"></script>
+  <script src="./JS/calcular2.js"></script>
+  <script src="./JS/nomina.js"></script>
+  <script src="./JS/modal.js"></script>
+ 
 </body>
 
 </html>

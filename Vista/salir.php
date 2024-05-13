@@ -5,5 +5,5 @@
 
   session_destroy();
 
-  header('Location: /Nomina');
+  header('Location: /liqui');
 ?>

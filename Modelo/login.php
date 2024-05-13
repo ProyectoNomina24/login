@@ -3,7 +3,7 @@
   session_start();
 
   if (isset($_SESSION['usuario_id'])) {
-    header('Location: /Nomina');
+    header('Location: /liqui');
   }
   require '../Controler/database.php';
 
@@ -17,7 +17,7 @@
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
       $_SESSION['usuario_id'] = $results['id'];
-      header("Location: /navb.php");
+      header("Location: ./navb.php");
     } else {
       $message = 'Lo siento, sus datos no coinciden';
     }

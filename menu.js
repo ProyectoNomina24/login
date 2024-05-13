@@ -8,10 +8,11 @@ function cargarMenu() {
         </div>
             
                 <li>
-                    <a href="../Vista/calcular.php">
+                    <a class="links" href="#" onclick="mostrarContenido('contenido1')">
                     <i class="fas fa-sack-dollar"></i>
                     <span>Liquidar</span>
                     </a>
+                    
                 </li>
                 <li>
                     <a href="#">
@@ -20,7 +21,7 @@ function cargarMenu() {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                <a class="links" href="#" onclick="mostrarContenido('contenido2')">
                     <i class="fa-solid fa-money-bill-wave"></i>
                         <span>Calcular</span>
                     </a>
@@ -44,7 +45,7 @@ function cargarMenu() {
                     </a>
                 </li>
                 <li class="logout">
-                    <a href="../Vista/salir.php">
+                    <a href="./Vista/salir.php">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Cerrar sesion</span>
                     </a>
