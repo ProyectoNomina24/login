@@ -1,0 +1,63 @@
+
+
+.modalDos-container{
+    display: flex;
+    background-color: rgba(0,0,0,0.2);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    margin-top: 60px;
+    margin-left: 0px;
+}
+.show-Dos{
+    pointer-events: auto;
+    opacity: 1;
+}
+.modalDos{
+    background-color: #fff;
+    width: 500px;
+    margin-top: 50px;
+    margin-right: 50px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.cerrar-modalDos{
+    display: flex;
+  align-items: center;
+  /*centra horizontalmente*/
+  padding: 10px 20px;
+  /* Ajusta el relleno */
+  border: none;
+  /* Elimina el borde */
+  background-color: #FA289E;
+  margin-left: 40%;/*margen hacia la derecha*/
+  margin-top: 20px;
+  /* Color de fondo */
+  color: #fff;
+  /* Color de texto */
+  border-radius: 5px;
+  /* Agrega bordes redondeados */
+  cursor: pointer;
+  /* Cambia el cursor*/
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1)
+}
+.cerrar-modalDos:hover{
+    background-color: transparent; /* Cambio a fondo transparente */
+    border: 2px solid #FA289E; /* Añade el estilo de borde */
+    color: #FA289E;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1)
+}
+
