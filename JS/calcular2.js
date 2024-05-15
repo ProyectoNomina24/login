@@ -1,36 +1,38 @@
-function calcularMiNomina() {
-  // Obtener los valores del formulario
-  const fechaInicio = new Date(document.getElementById('fechaInicio').value);
-  const fechaFinal = new Date(document.getElementById('fechaFinal').value);
-  const salarioMensual = parseFloat(document.getElementById('salarioMensual').value);
-  const auxilioTransporte = parseFloat(document.getElementById('auxilioTransporte').value);
-  const pagosExtras = parseFloat(document.getElementById('pagosExtras').value);
-  const otrasDeducciones = parseFloat(document.getElementById('otrasDeducciones').value);
 
-  // Calcular los días trabajados
-  const diasTrabajados = Math.ceil((fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24));
-  
+  function calcularMiNomina() {
+      // Obtener los valores del formulario
+      const fechaInicio = new Date(document.getElementById('Inicio').value);
+      const fechaFinal = new Date(document.getElementById('Final').value);
+      const salarioMensual = parseFloat(document.getElementById('salario').value);
+      const auxilioTransporte = parseFloat(document.getElementById('auxilio').value);
+      const pagosExtras = parseFloat(document.getElementById('Extras').value);
+      const otrasDeducciones = parseFloat(document.getElementById('Deducciones').value);
 
-  console.log("Días trabajados:", diasTrabajados);
+      // Calcular los días trabajados
+      const diasTrabajados = Math.ceil((fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24));
 
-  // Calcular el salario bruto
- 
-  const salarioBruto = salarioMensual + auxilioTransporte;
+      console.log("Días trabajados:", diasTrabajados);
 
-  console.log("Salario bruto:", salarioBruto);
+      // Calcular el salario bruto
+      const valorHora = 43333; // Valor por hora (por ejemplo)
+      const salarioBruto = salarioMensual + auxilioTransporte;
 
-  // Calcular las deducciones
-  const desDeducciones = (salarioBruto * 0.08);
-  const deducciones = salarioBruto - desDeducciones;
+      console.log("Salario bruto:", salarioBruto);
 
-  console.log("Deducciones:", deducciones);
+      // Calcular las deducciones
+      const desDeducciones = (salarioBruto * 0.08);
+      const deducciones = salarioBruto - desDeducciones;
 
-  // Calcular el salario neto
-  const salarioNeto = ((salarioBruto + pagosExtras) - otrasDeducciones) / 2;
+      console.log("Deducciones:", deducciones);
 
-  console.log("Salario neto antes de redondeo:", salarioNeto);
+      // Calcular el salario neto
+      const salarioNeto = ((salarioBruto + pagosExtras) - otrasDeducciones) / 2;
 
-  // Mostrar el resultado
-  document.getElementById('salarioNetoResult').innerText = "Salario neto: $" + salarioNeto.toFixed(2);
-  console.log("Salario neto después de redondeo:", salarioNeto.toFixed(2));
-}
+      console.log("Salario neto antes de redondeo:", salarioNeto);
+
+      // Mostrar el resultado
+      document.getElementById('salarioNeto').innerText = "Total a Pagar: $" + salarioNeto.toFixed(2);
+      console.log("Salario neto después de redondeo:", salarioNeto.toFixed(2));
+  }
+
+

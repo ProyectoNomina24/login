@@ -115,43 +115,70 @@ if (isset($_SESSION['usuario_id'])) {
 
 
   <div id="contenido2" style="display: none;">
-    <nav class="calc">
-      <div id="formulario">
-        <i class="calk fa-solid fa-money-bill-wave">
-          <span>Calcular</span>
-        </i>
-        <h4 class="name">Datos del Empleado</h4>
-        <br>
-        <label for="fechaInicio">Fecha de Inicio:</label>
-        <input type="date" id="fechaInicio" required>
+  <br>
+ 
+  <nav class="calc">
+  <div id="formulario">
+  <h2>Calcula tu pago de Nómina Quincenalmente</h2>
+  
+<form id="formulario">
+    <label for="Inicio">Fecha de Inicio:</label>
+    <input type="date" id="Inicio" name="Inicio" required><br><br>
 
-        <label for="fechaFinal">Fecha Final:</label>
-        <input type="date" id="fechaFinal" required>
-        <label for="salarioMensual">Salario Mensual:</label>
-        <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual" required>
+    <label for="Final">Fecha Final:</label>
+    <input type="date" id="Final" name="Final" required><br><br>
 
-        <label for="auxilioTransporte">Auxilio de Transporte:</label>
-        <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte" required>
+    <label for="salario">Salario Mensual:</label>
+    <input type="number" id="salario" name="salario" placeholder="Ingrese el salario mensual" required><br><br>
 
-        <label for="pagosExtras">Pagos Extras:</label>
-        <input type="number" id="pagosExtras" placeholder="Ingrese los pagos extras">
+    <label for="auxilio">Auxilio de Transporte:</label>
+    <input type="number" id="auxilio" name="auxilio" placeholder="Ingrese el auxilio de transporte"><br><br>
 
-        <label for="otrasDeducciones">Otras Deducciones:</label>
-        <input type="number" id="otrasDeducciones" placeholder="Ingrese sus otras deducciones">
+    <label for="Extras">Pagos Extras:</label>
+    <input type="number" id="Extras" name="Extras" placeholder="Ingrese los pagos extras"><br><br>
 
-        <button class="btn-cal" id="openModalDos" onclick="calcularMiNomina(); manejarModalDos();">Calcular Nómina</button>
-      </div>
-      
-      <div class="modalDos-container" id="resultadosDos">
-        <div class="modalDos">
-          <h2>Resultado</h2>
-          <div id="salarioNetoResult"></div>
-          <button class="cerrar-modalDos" id="btn-cerrar">cerrar</button>
-        </div>
-      </div>
-  </div>
+    <label for="Deducciones">Otras Deducciones:</label>
+    <input type="number" id="Deducciones" name="Deducciones" placeholder="Ingrese sus otras deducciones"><br><br>
+
+    <button type="button" onclick="calcularMiNomina()">Calcular Nómina</button>
+</form>
+
+<div id="resultado"></div>
+
+<script>
+   function calcularMiNomina() {
+    const fechaInicio = new Date(document.getElementById('Inicio').value);
+    const fechaFinal = new Date(document.getElementById('Final').value);
+    const salarioMensual = parseFloat(document.getElementById('salario').value);
+    const auxilioTransporte = parseFloat(document.getElementById('auxilio').value) || 0;
+    const pagosExtras = parseFloat(document.getElementById('Extras').value) || 0;
+    const otrasDeducciones = parseFloat(document.getElementById('Deducciones').value) || 0;
+
+    // Calcular los días trabajados
+    const diasTrabajados = Math.ceil((fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24));
+
+    // Calcular el salario bruto
+    const salarioBruto = salarioMensual + auxilioTransporte;
+
+    // Calcular las deducciones
+    const desDeducciones = (salarioBruto * 0.08);
+    const deducciones = salarioBruto - desDeducciones;
+
+    // Calcular el salario neto
+    const salarioNeto = ((salarioBruto + pagosExtras) - otrasDeducciones) / 2;
+
+    // Formatear el salario neto con separadores de decenas de mil
+    const salarioNetoFormateado = salarioNeto.toLocaleString();
+
+    // Mostrar el resultado
+    document.getElementById('resultado').innerHTML = `
+       
+        <p>Total a Pagar: $${salarioNetoFormateado}</p>
+    `;
+   }
+</script>
+ 
   </nav>
-
   <br>
   <br>
 <?php else : ?>
@@ -161,10 +188,9 @@ if (isset($_SESSION['usuario_id'])) {
 
 <script src="../menu.js"></script>
 <script src="../JS/calcular.js"></script>
-<script src="../JS/calcular2.js"></script>
 <script src="../JS/nomina.js"></script>
 <script src="../JS/modal.js"></script>
-<script src="../JS/modalDos.js"></script>
+
 
 </body>
 

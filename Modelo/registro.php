@@ -4,15 +4,14 @@ require '../Controler/database.php';
 
 $message = '';
 
-if (!empty($_POST['nombre']) || !empty($_POST['apellido']) || !empty($_POST['identificacion']) || !empty($_POST['idArea']) || !empty($_POST['email'])  || !empty($_POST['password'])) {
-  $sql = "INSERT INTO usuario (nombre, apellido, identificacion, idArea, email, password) VALUES (:nombre, :apellido, :identificacion, :idArea, :email, :password)";
+if (!empty($_POST['nombre']) || !empty($_POST['apellido']) || !empty($_POST['identificacion']) || !empty($_POST['email'])  || !empty($_POST['password'])) {
+  $sql = "INSERT INTO usuario (nombre, apellido, identificacion, email, password) VALUES (:nombre, :apellido, :identificacion, :email, :password)";
 
 
   $stmt = $conn->prepare($sql);
   $stmt->bindParam(':nombre', $_POST['nombre']);
   $stmt->bindParam(':apellido', $_POST['apellido']);
   $stmt->bindParam(':identificacion', $_POST['identificacion']);
-  $stmt->bindParam(':idArea', $_POST['idArea'], PDO::PARAM_INT);
   $stmt->bindParam(':email', $_POST['email']);
   $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
   $stmt->bindParam(':password', $password);
@@ -66,10 +65,7 @@ try{
         <input name="identificacion" type="number" required="">
         <label>Ingrese su identificacion</label>
       </div>
-      <div class="user-box">
-        <input name="idArea" type="number" required="">
-        <label>Ingrese su Area</label>
-      </div>
+     
       <div class="user-box">
         <input name="email" type="text" required="">
         <label>Ingrese su correo</label>
