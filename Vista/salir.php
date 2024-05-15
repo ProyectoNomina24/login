@@ -5,5 +5,5 @@
 
   session_destroy();
 
-  header('Location: /liqui');
+  header('Location: /liquidar');
 ?>

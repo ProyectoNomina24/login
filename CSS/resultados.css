@@ -18,11 +18,11 @@
     border: 1px solid #ccc;
     padding: 8px;
     text-align: center;
-    
+    width: 200px;
 }
 
 #tablaResultados td {
-    color: white;
+    color: black;
 }
 
 #tablaResultados th {

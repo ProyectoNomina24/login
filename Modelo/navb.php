@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require './Controler/database.php';
+require '../Controler/database.php';
 
 if (isset($_SESSION['usuario_id'])) {
   $records = $conn->prepare('SELECT id, email, password FROM usuario WHERE id = :id');
@@ -24,11 +24,11 @@ if (isset($_SESSION['usuario_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
 </head>
-<link rel="stylesheet" href="./CSS2/style.css">
-<link rel="stylesheet" href="./CSS/calc.css">
+<link rel="stylesheet" href="../CSS2/style.css">
+<link rel="stylesheet" href="../CSS/calc.css">
 <link rel="stylesheet" href="../CSS/resultados.css">
-<link rel="stylesheet" href="./CSS2/estilosModal.css">
-<link rel="stylesheet" href="./CSS2/modalDos.css">
+<link rel="stylesheet" href="../CSS2/estilosModal.css">
+<link rel="stylesheet" href="../CSS2/modalDos.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <body>
@@ -141,7 +141,7 @@ if (isset($_SESSION['usuario_id'])) {
 
         <button class="btn-cal" id="openModalDos" onclick="calcularMiNomina(); manejarModalDos();">Calcular Nómina</button>
       </div>
-
+      
       <div class="modalDos-container" id="resultadosDos">
         <div class="modalDos">
           <h2>Resultado</h2>
@@ -159,12 +159,12 @@ if (isset($_SESSION['usuario_id'])) {
 
 
 
-<script src="./menu.js"></script>
-<script src="./JS/calcular.js"></script>
-<script src="./JS/calcular2.js"></script>
-<script src="./JS/nomina.js"></script>
-<script src="./JS/modal.js"></script>
-<script src="./JS/modalDos.js"></script>
+<script src="../menu.js"></script>
+<script src="../JS/calcular.js"></script>
+<script src="../JS/calcular2.js"></script>
+<script src="../JS/nomina.js"></script>
+<script src="../JS/modal.js"></script>
+<script src="../JS/modalDos.js"></script>
 
 </body>
 

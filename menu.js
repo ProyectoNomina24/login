@@ -4,7 +4,7 @@ function cargarMenu() {
         <div class="sidebar">
         <div class="menu">
         <div class="logo">
-            <img src="./imagenes/moneda.png" alt="Logo">
+            <img src="../imagenes/moneda.png" alt="Logo">
         </div>
             
                 <li>
@@ -45,7 +45,7 @@ function cargarMenu() {
                     </a>
                 </li>
                 <li class="logout">
-                    <a href="./Vista/salir.php">
+                    <a href="../Vista/salir.php">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Cerrar sesion</span>
                     </a>
