@@ -1,9 +1,9 @@
 function manejarModalDos() {
-    const open = document.getElementById('openModalDos');
-    const resultados = document.getElementById('resultadosDos');
+    const open = document.getElementById('openDos');
+    const resultados = document.getElementById('resultadoDos');
     const close = document.getElementById('btn-cerrar');
 
-    openModalDos.addEventListener('click', () => {
+    open.addEventListener('click', () => {
         resultados.classList.add('show-Dos');
     });
 

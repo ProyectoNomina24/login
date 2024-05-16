@@ -26,6 +26,7 @@ if (isset($_SESSION['usuario_id'])) {
 </head>
 <link rel="stylesheet" href="../CSS2/style.css">
 <link rel="stylesheet" href="../CSS/calc.css">
+<link rel="stylesheet" href="../CSS/calcDos.css">
 <link rel="stylesheet" href="../CSS/resultados.css">
 <link rel="stylesheet" href="../CSS2/estilosModal.css">
 <link rel="stylesheet" href="../CSS2/modalDos.css">
@@ -107,78 +108,83 @@ if (isset($_SESSION['usuario_id'])) {
               </tr>
             </tbody>
           </table>
-          <button class="cerrar-modal" id="btn-close">cerrar</button>
+          <button class="cerrar-modal" id="btn-close">Cerrar</button>
         </div>
       </div>
+    </nav>
   </div>
-  </nav>
 
+  <!--CALCULADORA DOS-->
 
   <div id="contenido2" style="display: none;">
-  <br>
- 
-  <nav class="calc">
-  <div id="formulario">
-  <h2>Calcula tu pago de Nómina Quincenalmente</h2>
-  
-<form id="formulario">
-    <label for="Inicio">Fecha de Inicio:</label>
-    <input type="date" id="Inicio" name="Inicio" required><br><br>
+    <nav class="calcDos">
+      <div id="formulario">
+        <i class="calkDos fa-solid fa-money-bill-wave"></i>
+        <span>Calcular</span>
+        <form id="formularioDos">
+          <label for="Inicio">Fecha de Inicio:</label>
+          <input type="date" id="Inicio" name="Inicio" required>
 
-    <label for="Final">Fecha Final:</label>
-    <input type="date" id="Final" name="Final" required><br><br>
+          <label for="Final">Fecha Final:</label>
+          <input type="date" id="Final" name="Final" required>
 
-    <label for="salario">Salario Mensual:</label>
-    <input type="number" id="salario" name="salario" placeholder="Ingrese el salario mensual" required><br><br>
+          <label for="salario">Salario Mensual:</label>
+          <input type="number" id="salario" name="salario" placeholder="Ingrese el salario mensual" required>
 
-    <label for="auxilio">Auxilio de Transporte:</label>
-    <input type="number" id="auxilio" name="auxilio" placeholder="Ingrese el auxilio de transporte"><br><br>
+          <label for="auxilio">Auxilio de Transporte:</label>
+          <input type="number" id="auxilio" name="auxilio" placeholder="Ingrese el auxilio de transporte">
 
-    <label for="Extras">Pagos Extras:</label>
-    <input type="number" id="Extras" name="Extras" placeholder="Ingrese los pagos extras"><br><br>
+          <label for="Extras">Pagos Extras:</label>
+          <input type="number" id="Extras" name="Extras" placeholder="Ingrese los pagos extras">
 
-    <label for="Deducciones">Otras Deducciones:</label>
-    <input type="number" id="Deducciones" name="Deducciones" placeholder="Ingrese sus otras deducciones"><br><br>
+          <label for="Deducciones">Otras Deducciones:</label>
+          <input type="number" id="Deducciones" name="Deducciones" placeholder="Ingrese sus otras deducciones">
 
-    <button type="button" onclick="calcularMiNomina()">Calcular Nómina</button>
-</form>
+          <button class="btn-liquidar" id="openDos" type="button" onclick="calcularMiNomina(); manejarModalDos();">Calcular Nómina</button>
+        </form>
+<div class="modalDos-container" id="resultadoDos">
+  <div class="modalDos">
+    <div id="resultado"></div>
+    <button class="cerrar-modalDos" id="btn-cerrar">Cerrar</button>
+  </div>
+</div>
+      </div>
+    </nav>
+  </div>
 
-<div id="resultado"></div>
+  <script>
+    function calcularMiNomina() {
+      const fechaInicio = new Date(document.getElementById('Inicio').value);
+      const fechaFinal = new Date(document.getElementById('Final').value);
+      const salarioMensual = parseFloat(document.getElementById('salario').value);
+      const auxilioTransporte = parseFloat(document.getElementById('auxilio').value) || 0;
+      const pagosExtras = parseFloat(document.getElementById('Extras').value) || 0;
+      const otrasDeducciones = parseFloat(document.getElementById('Deducciones').value) || 0;
 
-<script>
-   function calcularMiNomina() {
-    const fechaInicio = new Date(document.getElementById('Inicio').value);
-    const fechaFinal = new Date(document.getElementById('Final').value);
-    const salarioMensual = parseFloat(document.getElementById('salario').value);
-    const auxilioTransporte = parseFloat(document.getElementById('auxilio').value) || 0;
-    const pagosExtras = parseFloat(document.getElementById('Extras').value) || 0;
-    const otrasDeducciones = parseFloat(document.getElementById('Deducciones').value) || 0;
+      // Calcular los días trabajados
+      const diasTrabajados = Math.ceil((fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24));
 
-    // Calcular los días trabajados
-    const diasTrabajados = Math.ceil((fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24));
+      // Calcular el salario bruto
+      const salarioBruto = salarioMensual + auxilioTransporte;
 
-    // Calcular el salario bruto
-    const salarioBruto = salarioMensual + auxilioTransporte;
+      // Calcular las deducciones
+      const desDeducciones = (salarioBruto * 0.08);
+      const deducciones = salarioBruto - desDeducciones;
 
-    // Calcular las deducciones
-    const desDeducciones = (salarioBruto * 0.08);
-    const deducciones = salarioBruto - desDeducciones;
+      // Calcular el salario neto
+      const salarioNeto = ((salarioBruto + pagosExtras) - otrasDeducciones) / 2;
 
-    // Calcular el salario neto
-    const salarioNeto = ((salarioBruto + pagosExtras) - otrasDeducciones) / 2;
+      // Formatear el salario neto con separadores de decenas de mil
+      const salarioNetoFormateado = salarioNeto.toLocaleString();
 
-    // Formatear el salario neto con separadores de decenas de mil
-    const salarioNetoFormateado = salarioNeto.toLocaleString();
-
-    // Mostrar el resultado
-    document.getElementById('resultado').innerHTML = `
+      // Mostrar el resultado
+      document.getElementById('resultado').innerHTML = `
        
         <p>Total a Pagar: $${salarioNetoFormateado}</p>
     `;
-   }
-</script>
- 
-  </nav>
+    }
+  </script>
+
   <br>
   <br>
 <?php else : ?>
@@ -190,6 +196,7 @@ if (isset($_SESSION['usuario_id'])) {
 <script src="../JS/calcular.js"></script>
 <script src="../JS/nomina.js"></script>
 <script src="../JS/modal.js"></script>
+<script src="../JS/modalDos.js"></script>
 
 
 </body>

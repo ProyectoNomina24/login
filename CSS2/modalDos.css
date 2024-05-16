@@ -23,7 +23,7 @@
     background-color: #fff;
     width: 500px;
     margin-top: 50px;
-    margin-right: 50px;
+    margin-left: 50px;
     max-width: 100%;
     padding: 30px 50px;
     border-radius: 5px;
@@ -32,25 +32,25 @@
 }
 .cerrar-modalDos{
     display: flex;
-  align-items: center;
-  /*centra horizontalmente*/
-  padding: 10px 20px;
-  /* Ajusta el relleno */
-  border: none;
-  /* Elimina el borde */
-  background-color: #FA289E;
-  margin-left: 40%;/*margen hacia la derecha*/
-  margin-top: 20px;
-  /* Color de fondo */
-  color: #fff;
-  /* Color de texto */
-  border-radius: 5px;
-  /* Agrega bordes redondeados */
-  cursor: pointer;
-  /* Cambia el cursor*/
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1)
+    align-items: center;
+    /*centra horizontalmente*/
+    padding: 10px 20px;
+    /* Ajusta el relleno */
+    border: none;
+    /* Elimina el borde */
+    background-color: #FA289E;
+    margin-left: 40%;/*margen hacia la derecha*/
+    margin-top: 20px;
+    /* Color de fondo */
+    color: #fff;
+    /* Color de texto */
+    border-radius: 5px;
+    /* Agrega bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor*/
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1)
 }
 .cerrar-modalDos:hover{
     background-color: transparent; /* Cambio a fondo transparente */

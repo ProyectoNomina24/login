@@ -1,0 +1,83 @@
+.calcDos{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    flex-direction: column;
+    /* Alinea los elementos en columna */
+    border: 1px solid #ccc;
+    /* Agrega un borde */
+    border-radius: 10px;
+    /* Agrega bordes redondeados */
+    max-width: 300px;
+    /* Define un ancho máximo */
+    margin-top: 5px;
+    padding-top: 5px;
+    margin-left: 42%;
+    font-weight: bold;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  }
+  .calkDos{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-left: 50px;
+  }
+  .calcDos input[type="date"],
+  .calcDos input[type="number"] {
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+    margin-bottom: 5px;
+    /* Agrega espacio inferior */
+    padding: 2px;
+    /* Agrega relleno */
+    border-radius: 5px;
+    /* Agrega bordes redondeados */
+    border: 1px solid #ccc;
+    /* Agrega un borde */
+  }
+  
+  .btn-liquidar{
+    display: flex;
+    align-items: center;
+    /*centra horizontalmente*/
+    padding: 10px 20px;
+    /* Ajusta el relleno */
+    border: none;
+    /* Elimina el borde */
+    background-color: #FA289E;
+    margin-left: 20px;/*margen hacia la derecha*/
+    margin-top: 20px;
+    /* Color de fondo */
+    color: #fff;
+    /* Color de texto */
+    border-radius: 5px;
+    /* Agrega bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor*/
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1)
+  }
+  
+  .btn-liquidar:hover {
+    background-color: transparent; /* Cambio a fondo transparente */
+    border: 2px solid #FA289E; /* Añade el estilo de borde */
+    color: #FA289E;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1)
+  }
+  
+  #resultado {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  .calcDos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+ 

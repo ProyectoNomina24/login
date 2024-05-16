@@ -61,6 +61,7 @@
 
 .menu li:hover {
     background: #FA289E;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 
 }
 
@@ -145,7 +146,7 @@
     left: 0;
 }
   .nav {
-    height: 60px;
+    height: 70px;
     width: 100%;
     background-color: #25283d;
     display: flex;
@@ -185,6 +186,7 @@
   .nav > .nav-links > a:hover {
     background-color: #FA289E;
     cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   }
   
   .nav > #nav-check {
