@@ -1,20 +1,25 @@
 <?php
-session_start();
+  session_start();
 
-require '../Controler/database.php';
+  require '../Controler/database.php';
 
-if (isset($_SESSION['usuario_id'])) {
-  $records = $conn->prepare('SELECT id, email, password FROM usuario WHERE id = :id');
-  $records->bindParam(':id', $_SESSION['usuario_id']);
-  $records->execute();
-  $results = $records->fetch(PDO::FETCH_ASSOC);
+  if (isset($_SESSION['usuario_id'])) {
+    
+    $records = $conn->prepare('SELECT id, email, password FROM usuario WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['usuario_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
 
-  $user = null;
-
-  if (count($results) > 0) {
-    $user = $results;
+    if ($results) {
+    
+      $user = $results;
+      
+    }
+    
+  } else {
+    header("Location: login.php");
+    exit;
   }
-}
 ?>
 <!DOCTYPE html>
 <html lang="Es">
