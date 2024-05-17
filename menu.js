@@ -27,7 +27,7 @@ function cargarMenu() {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="www.google.com">
                         <i class="fa-regular fa-folder-open"></i>
                         <span>Historial</span>
                     </a>

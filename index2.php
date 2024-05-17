@@ -17,6 +17,18 @@
   }
 ?>
 
+<?php
+session_start();
+
+error_reporting(0);
+$varsesion= $_SESSION['usuario_id'];
+if($varsesion== null || $varsesion=''){
+  header('Location: ../Modelo/Login.php');
+  echo ("Por favor inicia sesion");
+  die();
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
