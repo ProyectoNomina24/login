@@ -52,32 +52,31 @@ try{
       <p>O <a href="../Modelo/login.php">Inicia sesión</a></p>
       </div>
       <br>
-    <form action="registro.php" method="POST">
-      <div class="user-box">
-        <input name="nombre" type="text" required="">
-        <label>Ingrese su nombre</label>
-      </div>
-      <div class="user-box">
-        <input name="apellido" type="text" required="">
-        <label>Ingrese su apellido</label>
-      </div>
-      <div class="user-box">
-        <input name="identificacion" type="number" required="">
-        <label>Ingrese su identificacion</label>
-      </div>
-     
-      <div class="user-box">
-        <input name="email" type="text" required="">
-        <label>Ingrese su correo</label>
-      </div>
-      <div class="user-box">
-        <input name="password" type="password" required="">
-        <label>Ingrese su contraseña</label>
-      </div>
-      <button type ="submit" value ="Enviar" class="custom-btn btn"><span>Enviar</span></button>
-      </form>
+      <form id="registrationForm" action="registro.php" method="POST">
+  <div class="user-box">
+    <input name="nombre" type="text" required="">
+    <label>Ingrese su nombre</label>
+  </div>
+  <div class="user-box">
+    <input name="apellido" type="text" required="">
+    <label>Ingrese su apellido</label>
+  </div>
+  <div class="user-box">
+    <input name="identificacion" type="number" required="">
+    <label>Ingrese su identificacion</label>
+  </div>
+  <div class="user-box">
+    <input name="email" id="email" type="email" required="">
+    <label>Ingrese su correo</label>
+  </div>
+  <div class="user-box">
+    <input name="password" id="password" type="password" required="">
+    <label>Ingrese su contraseña</label>
+  </div>
+  <button type="submit" class="custom-btn btn"><span>Enviar</span></button>
+</form>
   </div>
 
-  
+  <script src="../JS/registrarse.js"></script>
 </body>
 </html>
