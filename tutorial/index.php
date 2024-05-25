@@ -29,8 +29,7 @@ if (isset($_SESSION['usuario_id'])) {
   <link rel="stylesheet" href="CSS/calc.css">
   <link rel="stylesheet" href="CSS/footer.css">
   <link rel="stylesheet" href="precios.css">
-  
-  
+  <link rel="stylesheet" href="quienes.css">
 </head>
 
 <body>
@@ -40,7 +39,7 @@ if (isset($_SESSION['usuario_id'])) {
   <nav class="navbar js-navbar">
     <ul class="menu">
       <div class="logo-container">
-        <img class="logoM" src="./imagenes/moneda.png" alt="">
+        <img class="logoM" src="/imagenes/moneda.png" alt="">
         <p class="text-logo">My Nomina</p>
       </div>
       <li>
@@ -76,7 +75,7 @@ if (isset($_SESSION['usuario_id'])) {
         </ul>
       </li>
       <li>
-        <a href="quienes_somos.html">Quienes Somos?</a>
+        <a href="#">Porque My Nomina?</a>
       </li>
       <li>
         <a href="index.html">Precios</a>
