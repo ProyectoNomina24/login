@@ -118,6 +118,23 @@ footer {
   left: 10px;
   animation: moving 2s linear infinite;
   }
+
+  .testimonial-box footer {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-box footer img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.testimonial-box footer p {
+    margin: 0;
+}
+
   @keyframes moving{
       0%{
           left: -20px;

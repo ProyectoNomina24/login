@@ -1,6 +1,6 @@
 <header>
     <center>
-    <a href="/Nomina">MyNomina</a>
+    <a href="/liquidar">MyNomina</a>
     <img src="/Nomina/imagenes/moneda.png" alt="">
     </center>
 

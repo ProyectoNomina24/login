@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ffbded, #bba2ff, #f0d2ff);
+    margin: 0;
+    padding: 0;
+}
+
+.pricing-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.title {
+    color: #000000;
+    font-size: 2.8em;
+    margin-bottom: 30px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.price-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 300px;
+    min-height: 300px;
+    text-align: center;
+}
+
+.price-card.highlighted {
+    background-color: #00a4ff6e;
+}
+
+.price {
+    font-size: 2.2em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.per-person {
+    background-color: #eee;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 10px 0;
+    color: #666;
+}
+
+.description {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.detail-text {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+    text-align: start;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.features-list li {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #444;
+}
+
+.checkmark {
+    color: green;
+    margin-right: 5px;
+}
+
+.trial-button {
+    background-color: #ffffff;
+    border: 2px solid black;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    width: auto;
+}
+
+.trial-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+    }
+
+    .price-card {
+        width: 100%;
+    }
+}
+
+
+.functionalities-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.functionalities-title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.accordion {
+    width: 50%;
+    margin: auto;
+}
+
+.accordion-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.accordion-button {
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.arrow {
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.accordion-button.active .arrow {
+    transform: rotate(-180deg);
+}
+
+.accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    padding: 0 15px;
+}
+
+
+.accordion-button:hover, .accordion-button.active {
+    background-color: #f3f3f3;
+}
+
+.accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    padding: 0 15px;
+}
+
+
+/*FOOTER*/
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 10%;
+    font-size: 16px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-section h3, .footer-section h4 {
+    margin: 0 0 10px;
+}
+
+.footer-section p, .footer-section a {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}

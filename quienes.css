@@ -1,0 +1,403 @@
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
+    background: white;
+    height: 100%;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 10%;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: linear-gradient(to right, #da76ff, #9e7bfe, #f0d2ff);
+}
+
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 40px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+
+.main-title {
+    font-size: 28px;
+    line-height: 30px;
+    color: #3F30C7;
+    margin-bottom: 10px;
+}
+
+.main-description {
+    font-size: 2.0em;
+    font-weight: bold;
+}
+
+.benefits {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: start;
+    margin: 0 10px;
+    width: 30%;
+}
+
+.benefit-title {
+    font-size: 1.0em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.benefit-description {
+    font-size: 1.1em;
+}
+
+footer {
+    background: #333333a1;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+/* SECCION 2*/
+
+#section2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 10%;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: white;
+}
+
+#section2 .image-container img {
+    width: 400px;
+    height: auto;
+    border-radius: 50% 50% 10% 10%;
+}
+
+#section2 .content {
+    flex: 1;
+    padding: 20px;
+    max-width: 700px;
+    background: linear-gradient(to right, #da76ff, #9e7bfe, #f0d2ff);
+}
+
+#section2 h1 {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #000000;
+}
+
+#section2 p {
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+#section2 .features {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+#section2 .feature-item {
+    padding: 10px 20px;
+    background-color: #F79C7B;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+/* SECCION 3*/
+#section3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    background: white;
+}
+
+#section3 .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #da76ff, #9e7bfe, #f0d2ff);
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 90%;
+    position: relative;
+}
+
+#section3 .content {
+    flex: 1;
+    padding: 20px;
+}
+
+#section3 h1, #section3 h2 {
+    font-weight: bold;
+}
+
+#section3 h1 {
+    font-size: 2.5em;
+    color: #000000;
+}
+
+#section3 h2 {
+    font-size: 1.5em;
+}
+
+#section3 p, #section3 button {
+    font-size: 1.0em;
+}
+
+#section3 .feature-buttons {
+    display: flex;
+    justify-content: start;
+    margin: 20px 0;
+}
+
+#section3 .feature-button {
+    background-color: rgb(249 138 112);
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#section3 button {
+    padding: 10px 20px;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 25px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+#section3 .image-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+#section3 .image-container img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* SECCION 4*/
+.testimonios-background {
+    background-color: #efe4ff;
+    padding: 50px 0;
+    color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.testimonial-text {
+    width: 50%;
+    margin-right: 20px;
+}
+
+.testimonial-title {
+    font-size: 2.5em;
+    color: #7444bb;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.testimonial-description {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: black;
+    max-width: 400px;
+}
+
+.testimonial-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 40%;
+    min-width: 300px;
+}
+
+.testimonial-box blockquote {
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial-box hr {
+    margin: 20px 0;
+}
+
+.testimonial-box footer {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-box footer img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.testimonial-box footer p {
+    margin: 0;
+}
+
+
+
+/* Media Queries para responsividad seccion 1 */
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+    }
+
+    .content {
+        width: 100%;
+        align-items: center;
+    }
+
+    .benefits {
+        flex-direction: column;
+    }
+
+    .benefit-item {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Media Queries para responsividad seccion 2 */
+@media (max-width: 768px) {
+    #section2 {
+        flex-direction: column;
+    }
+
+    #section2 .image-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    #section2 .content, #section2 .features {
+        width: 100%;
+        text-align: center;
+    }
+
+    #section2 .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #section2 .feature-item {
+        margin-bottom: 10px;
+    }
+}
+/* Media Queries para responsividad seccion 3 */
+@media (max-width: 768px) {
+    #section3 .container {
+        flex-direction: column;
+    }
+
+    #section3 .content, #section3 .image-container {
+        width: 100%;
+    }
+
+    #section3 .feature-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #section3 .feature-button {
+        margin-bottom: 10px;
+    }
+    
+    #section3 button {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+    }
+}
+
+/* Media Queries para responsividad seccion 4 */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .testimonial-text, .testimonial-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .testimonial-text {
+        order: 2;
+    }
+
+    .testimonial-description {
+        max-width: 100%;
+    }
+}
+

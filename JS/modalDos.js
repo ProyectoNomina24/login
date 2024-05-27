@@ -1,6 +1,7 @@
 function manejarModalDos() {
     const open = document.getElementById('openDos');
     const resultados = document.getElementById('resultadoDos');
+    const pdf = document.getElementById('pdf');
     const close = document.getElementById('btn-cerrar');
 
     open.addEventListener('click', () => {
