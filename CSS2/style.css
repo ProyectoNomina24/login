@@ -94,6 +94,7 @@
 /*******responsive Menu*********/
 
 @media screen and (max-width: 768px) {
+    
     .sidebar {
         width: 100%; /* El menú ocupa todo el ancho en dispositivos pequeños */
         transition: none; /* Desactiva la transición en pantallas pequeñas */
@@ -196,12 +197,12 @@
     width: 40px; 
     height: 40px; 
     border-radius: 50%; 
-    background-color: #ccc;
     margin-left: 10px; 
     margin-right: 10px; 
     margin-top: 10px;
     margin-block-end: 10px;
 }
+
 
   /* Estilos para dispositivos móviles */
 @media screen and (max-width: 768px) {

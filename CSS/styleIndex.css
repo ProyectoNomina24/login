@@ -1,240 +1,191 @@
+/* Global Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      text-align: center;
-      background: linear-gradient(to bottom, #003366,#00b8eb); /* Degradado de arriba hacia abajo */
-    }
-    
-    /* Input Forms*/
-    input[type="text"], input[type="password"]{
-      outline: none;
-      padding: 20px;
-      display: block;
-      width: 300px;
-      border-radius: 3px;
-      border: 1px solid #eee;
-      margin: 20px auto;
-    }
-    
-    input[type="submit"] {
-      padding: 10px;
-      color: #fff;
-      background: #0098cb;
-      width: 320px;
-      margin: 20px auto;
-      margin-top: 0;
-      border: 0;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    input[type="submit"]:hover {
-      background-color: #00b8eb;
-    }
-    
-    /* Header */
-    header {
-      border-bottom: 2px solid #eee;
-      padding: 20px 0;
-      margin-bottom: 10px;
-      width: 100%;
-      text-align: center;
-    }
-    header a {
-      text-decoration: none;
-      color: #333;
-    }
-     /*MENSAJE BIENVENIDO*/
-  #container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ajusta la altura al 100% del viewport */
-    text-align: center; /* Alinea el texto al centro */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  background: linear-gradient(to bottom, #003366, #00b8eb);
+}
+
+/* Input Forms */
+input[type="text"], input[type="password"] {
+  outline: none;
+  padding: 20px;
+  display: block;
+  width: 300px;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  margin: 20px auto;
+}
+input[type="submit"] {
+  padding: 10px;
+  color: #fff;
+  background: #0098cb;
+  width: 320px;
+  margin: 20px auto;
+  margin-top: 0;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #00b8eb;
+}
+
+/* Header */
+header {
+  border-bottom: 2px solid #eee;
+  padding: 20px 0;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+header a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Mensaje de Bienvenido */
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
 }
 #container .msjBienvenido .msjBienvenido2 {
-  font-size: 2rem; /* Tamaño de fuente más grande */
-  font-family: "Arial", sans-serif; /* Cambiar la fuente a Arial o a la fuente deseada */ 
+  font-size: 2rem;
+  font-family: "Arial", sans-serif;
 }
-.msjBienvenido{
+.msjBienvenido {
   color: #fff;
   font-weight: bold;
 }
-.msjBienvenido2{
-  font-size: 2rem; /* Tamaño de fuente más grande */
-  font-family: "Arial", sans-serif; /* Cambiar la fuente a Arial o a la fuente deseada */
+.msjBienvenido2 {
+  font-size: 2rem;
+  font-family: "Arial", sans-serif;
   color: #FA289E;
 }
-/****FIN MENSAJE BIENVENIDO********/
 
-/*****INICIO BOTONES*********/
-.link-1 {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color:transparent;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 10px;
-  border: 2px solid #FA289E; /* Añade el estilo de borde */
-  margin-right: 10px; /* Espacio entre los botones */
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-   outline: none;
-}
-
-.link-1:hover {
-  background-color:#FA289E;
-
-}
-
-.link-2{
-  background-color: #FA289E; /* Fondo rosado */
-  border-color: #FA289E; /* Borde rosado */
-  color: #fff; /* Color de texto */
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 10px;
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-}
-
-.link-2:hover {
-  background-color: transparent; /* Cambio a fondo transparente */
-  border: 2px solid #FA289E; /* Añade el estilo de borde */
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-}
-#containerBut {
-  display: flex;
-  justify-content: center; /* Alinea los elementos hijos al centro horizontalmente */
-}
-
+/* Botones */
 .link-1, .link-2 {
   display: inline-block;
-  vertical-align: middle; /* Alinea verticalmente si es necesario */
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+              7px 7px 20px 0px rgba(0,0,0,.1),
+              4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
 }
-/******FIN BOTONES******/
-/*****RESPONSIVE MENJSAE BIENVENIDO Y BOTONES ******/
+
+.link-1 {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #FA289E;
+}
+.link-1:hover {
+  background-color: #FA289E;
+}
+
+.link-2 {
+  background-color: #FA289E;
+  border-color: #FA289E;
+  color: #fff;
+}
+.link-2:hover {
+  background-color: transparent;
+  border: 2px solid #FA289E;
+}
+
+#containerBut {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive Mensaje Bienvenido y Botones */
 @media screen and (max-width: 768px) {
   #container {
     padding: 10px;
     padding-top: 300px;
   }
-
   .msjBienvenido, .msjBienvenido2 {
     font-size: 1.5rem;
   }
-
   .link-1, .link-2 {
     margin-bottom: 10px;
   }
 }
 
-
-/* INICIO NAVBAR */
+/* Navbar */
 .logo-container {
   display: flex;
-  align-items: center; /* Alinea verticalmente los elementos */
+  align-items: center;
   margin-top: 0;
 }
-/* Ajusta el espacio entre el logo y el menú */
-.logo-container, .menu {
-  margin-left: 20px; /* Ajusta el margen izquierdo para dejar espacio para el logotipo */
-}
-
 .logoM {
-  width: 80px; /* Ajusta el ancho de la imagen según sea necesario */
-  height: auto; /* Altura automática */
+  width: 80px;
+  height: auto;
 }
-
 .text-logo {
-  margin: 0; /* Elimina cualquier margen */
-  font-size: 18px; /* Ajusta el tamaño del texto según sea necesario */
-  font-weight: bold; /* Ajusta el grosor de la fuente según sea necesario */
-  color: #fff; /* Color del texto */
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
   margin-right: 10px;
 }
 
 .menu {
-  display: flex; /* Hace que los elementos del menú se muestren en línea */
-  align-items: center; /* Alinea verticalmente los elementos */
-  list-style: none; /* Elimina los puntos de la lista */
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin-left: 20px;
 }
 
 .menu li {
-  margin-right: 10px; /* Ajusta el margen entre elementos del menú según sea necesario */
+  margin-right: 10px;
   margin-left: 10px;
 }
+
 .menu a {
-  padding: 10px 5px; /* Reducimos el relleno de los enlaces */
+  padding: 10px 5px;
+  color: #fff;
+  text-decoration: none;
 }
-
-/* Ajusta el espacio entre el logo y el menú */
-.menu {
-  margin-left: auto; /* Mueve el menú al extremo derecho */
-}
-
-/* Ajusta el espacio entre el logo y el menú en pantallas pequeñas */
-@media screen and (max-width: 768px) {
-  .menu {
-    margin-left: 10px; /* Ajusta el margen izquierdo del menú en pantallas pequeñas */
-  }
-}
-/* Ajusta el espacio entre el logo y el menú en pantallas pequeñas */
-@media screen and (max-width: 768px) {
-  .logo-container, .menu {
-    margin-left: 10px; /* Ajusta el margen izquierdo en pantallas pequeñas */
-  }
-}
-
 
 .navbar {
-  width: 100%; /* Tomar todo el ancho de la pantalla */
-  margin: 0 auto;
-  color: #fff;
-  border-radius: 4px;
+  width: 100%;
   background-color: #25283d;
+  color: #fff;
   top: 0;
-  margin-top: 0; /* Elimina cualquier margen en la parte superior */
-  padding-top: 0; /* Elimina cualquier relleno en la parte superior */
+  margin: 0;
+  padding-top: 0;
 }
 
 .navbar .menu {
-  position: relative;
   display: flex;
+  position: relative;
 }
 
 .navbar .menu li {
   display: flex;
-  transition: background-color .5s ease;
-  text-align: center;
   flex: 1;
+  text-align: center;
+  transition: background-color .5s ease;
 }
 
 .navbar .menu a {
-  position: relative;
   display: inline-flex;
-  padding: 15px;
-  text-decoration: none;
-  color: #fff;
   flex: 1;
   justify-content: center;
-}
-
-.navbar .menu a > .fa {
-  font-weight: bold;
-  margin-left: 4px;
+  padding: 15px;
 }
 
 .navbar .menu li:hover {
@@ -247,7 +198,6 @@
 
 a.hasDropdown:after {
   position: absolute;
-  z-index: 2;
   bottom: -16px;
   left: 50%;
   width: 0;
@@ -262,74 +212,57 @@ li:hover a.hasDropdown:after {
   border-top-color: #FA289E;
 }
 
-/* End Navigation Bar */
-
-
-/* Start Single Section Menu */
-
+/* Single Section Menu */
 .container {
   position: absolute;
   z-index: 1;
-  top: 80px;
+  top: 100%;
   right: 0;
   left: 0;
   display: none;
-  margin-bottom: 30px;
-  text-align: left;
   background-color: #fff;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, .06);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.06);
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
 }
 
 .container__list {
   display: flex;
-  min-width: 0;
   padding: 20px;
+  flex-wrap: nowrap;  /* Prevent wrapping */
   flex: 1;
-  flex-wrap: wrap;
 }
 
 .container__listItem {
-  overflow: hidden;
   padding: 10px 30px;
   white-space: nowrap;
   text-overflow: ellipsis;
-  flex: 0 0 25%;
+  overflow: hidden;
+  flex: 1;
 }
 
 .container__listItem > div {
-  overflow: hidden;
   cursor: pointer;
   white-space: nowrap;
-  text-decoration: underline;
-  text-overflow: ellipsis;
-  color: #FA289E;
-}
-
-/* End Single Section Menu */
-
-/* Start Multiple Section Menu */
-
-.container.has-multi .container__listItem {
-  flex-basis: 100%;
   text-decoration: none;
+  color: #FA289E;
+  text-overflow: ellipsis;
 }
 
+/* Multiple Section Menu */
 .container.has-multi .container__list {
-  border-radius: 4px;
-  flex-basis: 33.333%;
+  flex-wrap: nowrap;  /* Prevent wrapping */
 }
-
+.container.has-multi .container__listItem {
+  flex-basis: auto;
+  flex: 1;
+}
 .container.has-multi .container__list:not(:last-child) {
-  margin-right: 20px;
   border-right: solid 1px #f3f3f3;
 }
 
-/* End Multiple Section Menu */
-
-
-
-
-/* Start Responsive Menu */
+/* Responsive Menu */
 @media only screen and (max-width: 768px) {
   .navbar {
     position: fixed;
@@ -340,40 +273,44 @@ li:hover a.hasDropdown:after {
     z-index: 1000;
     transition: top 0.3s ease;
   }
-  
-  .navbar--is-visible {
-    top: 0;
-  }
-  
+
   .menu {
     display: flex;
     flex-direction: column;
   }
-  
+
   .menu li {
     width: 100%;
   }
-  
+
   .menu a {
-    padding: 20px 0;
     display: block;
+    padding: 20px 0;
     text-align: center;
     color: #fff;
-    text-decoration: none;
-    align-items: center;
   }
-  
+
   .menu .container {
     position: static;
-    display: flex;
+    display: none;
     flex-direction: column;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
   }
-  
+
   .container--is-visible {
+    display: flex;
     max-height: 1000px;
   }
+
+  .container__list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  .container__listItem {
+    flex: 0 0 auto;
+  }
 }
-/* End Responsive Menu */

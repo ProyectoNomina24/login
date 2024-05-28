@@ -1,25 +1,23 @@
 <?php
-  session_start();
+session_start();
 
-  require '../Controler/database.php';
+require '../Controler/database.php';
 
-  if (isset($_SESSION['usuario_id'])) {
-    
-    $records = $conn->prepare('SELECT id, email, password FROM usuario WHERE id = :id');
-    $records->bindParam(':id', $_SESSION['usuario_id']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
+if (isset($_SESSION['usuario_id'])) {
 
-    if ($results) {
-    
-      $user = $results;
-      
-    }
-    
-  } else {
-    header("Location: login.php");
-    exit;
+  $records = $conn->prepare('SELECT id, email, password FROM usuario WHERE id = :id');
+  $records->bindParam(':id', $_SESSION['usuario_id']);
+  $records->execute();
+  $results = $records->fetch(PDO::FETCH_ASSOC);
+
+  if ($results) {
+
+    $user = $results;
   }
+} else {
+  header("Location: login.php");
+  exit;
+}
 ?>
 
 
@@ -56,8 +54,8 @@
       <a href="#" target="_blank"><i class="fas fa-cog"></i></a>
       <a href="#" target="_blank"><i class="fa-solid fa-volume-off"></i></a>
       <a href="#" target="_blank"><i class="fa-regular fa-bell"></i></a>
-      <div class="user-profile" id="myProfile">
-      </div>
+      <img class="user-profile" src="/imagenes/user2.png" alt="">
+
     </div>
   </div>
   <!--FIN NAVBAR-->
@@ -149,18 +147,18 @@
 
           <button class="btn-liquidar" id="openDos" type="button" onclick="calcularMiNomina(); manejarModalDos();">Calcular Nómina</button>
         </form>
-<div class="modalDos-container" id="resultadoDos">
-  <div class="modalDos">
-    <div id="resultado"></div>
-    <!--<div id="pdf"><a href="../Vista/comprobantepdf.php" onclick="generarPDF()" target="_blank">Descargar Comprobante</a></div>-->
-    <button class="cerrar-modalDos" id="btn-cerrar">Cerrar</button>
-  </div>
-</div>
+        <div class="modalDos-container" id="resultadoDos">
+          <div class="modalDos">
+            <div id="resultado"></div>
+            <!--<div id="pdf"><a href="../Vista/comprobantepdf.php" onclick="generarPDF()" target="_blank">Descargar Comprobante</a></div>-->
+            <button class="cerrar-modalDos" id="btn-cerrar">Cerrar</button>
+          </div>
+        </div>
       </div>
     </nav>
-  
+
   </div>
-  
+
   <script>
     function calcularMiNomina() {
       const fechaInicio = new Date(document.getElementById('Inicio').value);
@@ -194,67 +192,67 @@
     }
   </script>
 
-<script>
+  <script>
     function generarPDF() {
-        // Recopilar datos del formulario
-        const fechaInicio = document.getElementById('Inicio').value;
-        const fechaFinal = document.getElementById('Final').value;
-        const salarioMensual = parseFloat(document.getElementById('salario').value);
-        const auxilioTransporte = parseFloat(document.getElementById('auxilio').value) || 0;
-        const pagosExtras = parseFloat(document.getElementById('Extras').value) || 0;
-        const otrasDeducciones = parseFloat(document.getElementById('Deducciones').value) || 0;
+      // Recopilar datos del formulario
+      const fechaInicio = document.getElementById('Inicio').value;
+      const fechaFinal = document.getElementById('Final').value;
+      const salarioMensual = parseFloat(document.getElementById('salario').value);
+      const auxilioTransporte = parseFloat(document.getElementById('auxilio').value) || 0;
+      const pagosExtras = parseFloat(document.getElementById('Extras').value) || 0;
+      const otrasDeducciones = parseFloat(document.getElementById('Deducciones').value) || 0;
 
-        // Realizar cálculos
-        const diasTrabajados = Math.ceil((new Date(fechaFinal) - new Date(fechaInicio)) / (1000 * 60 * 60 * 24));
-        const salarioBruto = salarioMensual + auxilioTransporte;
-        const desDeducciones = salarioBruto * 0.08;
-        const deducciones = salarioBruto - desDeducciones;
-        const salarioNeto = ((salarioBruto + pagosExtras) - otrasDeducciones) / 2;
+      // Realizar cálculos
+      const diasTrabajados = Math.ceil((new Date(fechaFinal) - new Date(fechaInicio)) / (1000 * 60 * 60 * 24));
+      const salarioBruto = salarioMensual + auxilioTransporte;
+      const desDeducciones = salarioBruto * 0.08;
+      const deducciones = salarioBruto - desDeducciones;
+      const salarioNeto = ((salarioBruto + pagosExtras) - otrasDeducciones) / 2;
 
-        // Construir el objeto con los datos a enviar al servidor
-        const data = {
-            fechaInicio: fechaInicio,
-            fechaFinal: fechaFinal,
-            salarioMensual: salarioMensual,
-            auxilioTransporte: auxilioTransporte,
-            pagosExtras: pagosExtras,
-            otrasDeducciones: otrasDeducciones,
-            salarioNeto: salarioNeto
-        };
+      // Construir el objeto con los datos a enviar al servidor
+      const data = {
+        fechaInicio: fechaInicio,
+        fechaFinal: fechaFinal,
+        salarioMensual: salarioMensual,
+        auxilioTransporte: auxilioTransporte,
+        pagosExtras: pagosExtras,
+        otrasDeducciones: otrasDeducciones,
+        salarioNeto: salarioNeto
+      };
 
-        // Enviar los datos al servidor para generar el PDF
-        fetch('../Vista/comprobantepdf.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+      // Enviar los datos al servidor para generar el PDF
+      fetch('../Vista/comprobantepdf.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud');
-            }
-            return response.blob();
+          if (!response.ok) {
+            throw new Error('Error en la solicitud');
+          }
+          return response.blob();
         })
         .then(blob => {
-            // Crear un objeto URL para el blob
-            const url = window.URL.createObjectURL(blob);
+          // Crear un objeto URL para el blob
+          const url = window.URL.createObjectURL(blob);
 
-            // Crear un enlace para descargar el PDF
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'comprobante.pdf';
-            document.body.appendChild(a);
-            a.click();
+          // Crear un enlace para descargar el PDF
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'comprobante.pdf';
+          document.body.appendChild(a);
+          a.click();
 
-            // Limpiar el objeto URL
-            window.URL.revokeObjectURL(url);
+          // Limpiar el objeto URL
+          window.URL.revokeObjectURL(url);
         })
         .catch(error => {
-            console.error('Error:', error);
+          console.error('Error:', error);
         });
     }
-</script>
+  </script>
 
 
 

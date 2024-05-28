@@ -22,7 +22,7 @@ if (isset($_SESSION['usuario_id'])) {
 
 <head>
   <meta charset="utf-8">
-  <title>Bienvenido a Mynomina</title>
+  <title>Bienvenido a Mynómina</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <script src="https://kit.fontawesome.com/162e2e5f40.js"></script>
   <link rel="stylesheet" href="CSS/styleIndex.css">
@@ -41,11 +41,10 @@ if (isset($_SESSION['usuario_id'])) {
     <ul class="menu">
       <div class="logo-container">
         <img class="logoM" src="./imagenes/moneda.png" alt="">
-        <p class="text-logo">My Nomina</p>
+        <p class="text-logo">My Nómina</p>
       </div>
       <li>
         <a class="hasDropdown" href="#">Funciones <i class="fa fa-angle-down"></i></a>
-
         <ul class="container">
           <div class="container__list">
             <div class="container__listItem">
@@ -84,6 +83,28 @@ if (isset($_SESSION['usuario_id'])) {
     </ul>
   </nav>
 
+  <Script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const menuItems = document.querySelectorAll('.menu li a.hasDropdown');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      const submenu = this.nextElementSibling;
+      if (submenu.classList.contains('container--is-visible')) {
+        submenu.classList.remove('container--is-visible');
+      } else {
+        // Cierra otros submenús abiertos
+        document.querySelectorAll('.container.container--is-visible').forEach(openSubmenu => {
+          openSubmenu.classList.remove('container--is-visible');
+        });
+        submenu.classList.add('container--is-visible');
+      }
+    });
+  });
+});
+
+  </Script>
   <!-- End Navigation Bar -->
 
   <?php if (!empty($user)) : ?>
@@ -184,6 +205,7 @@ if (isset($_SESSION['usuario_id'])) {
     </footer>
   <?php endif; ?>
 </body>
+
 <script src="JS/script.js"></script>
 
 </html>

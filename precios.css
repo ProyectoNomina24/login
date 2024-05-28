@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ffbded, #bba2ff, #f0d2ff);
+    background: linear-gradient(to right, #ffbded, #7053be, #dff387);
     margin: 0;
     padding: 0;
 }
@@ -26,18 +26,86 @@ body {
 .price-card {
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
     padding: 20px;
     width: 300px;
     min-height: 300px;
     text-align: center;
 }
-
+/* CARTA DE PRECIO RECOMENDADO*/
 .price-card.highlighted {
-    background-color: #00a4ff6e;
+    background-color: #0059ffe7;
+    
+}
+.priceDos{
+    font-size: 2.2em;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.price {
+.per-personDos{
+    background-color: #09bff7;
+    border-radius: 50px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.descriptionDos{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.detail-textDos{
+    font-size: 1em;
+    color: #fff;
+    margin-bottom: 15px;
+    text-align: start;
+}
+
+.features-listDos{
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.features-listDos{
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #fff;
+}
+
+.checkmarkDos{
+    color: rgb(7, 245, 26);
+    margin-right: 5px;
+}
+.trial-buttonDos{
+    background-color: rgb(7, 245, 26);
+    border: 2px solid rgb(7, 245, 26);
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    width: auto;
+}
+
+.trial-buttonDos:hover {
+    background-color: #fff;
+    color: black;
+    border: 2px solid #fff;
+}
+/*FIN CARTA DE PRECIO RECOMENDADO*/
+
+
+.price{
     font-size: 2.2em;
     color: #333;
     font-weight: bold;
@@ -45,12 +113,13 @@ body {
 }
 
 .per-person {
-    background-color: #eee;
+    background-color: #8bdff8;
     border-radius: 50px;
+    font-weight: bold;
     display: inline-block;
     padding: 5px 15px;
     margin: 10px 0;
-    color: #666;
+    color: #5705f0;
 }
 
 .description {
@@ -81,7 +150,7 @@ body {
 }
 
 .checkmark {
-    color: green;
+    color: rgb(7, 245, 26);
     margin-right: 5px;
 }
 
@@ -89,6 +158,7 @@ body {
     background-color: #ffffff;
     border: 2px solid black;
     color: black;
+    font-weight: bold;
     padding: 10px 20px;
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
@@ -97,8 +167,9 @@ body {
 }
 
 .trial-button:hover {
-    background-color: #4CAF50;
-    color: white;
+    background-color: rgb(7, 245, 26);
+    color: black;
+    border: 2px solid rgb(7, 245, 26);
 }
 
 

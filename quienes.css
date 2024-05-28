@@ -1,31 +1,4 @@
 
-
-body, html {
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-    font-family: Arial, sans-serif;
-    background: white;
-    height: 100%;
-}
-
-
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 50px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
 section {
     display: flex;
     align-items: center;
@@ -37,9 +10,13 @@ section {
 }
 
 
-.image-container img {
+.image-container .imgUno{
     max-width: 100%;
     border-radius: 40px;
+}
+.image-containerDos .imgDos{
+    max-width: 100%;
+    border-radius: 100px;
 }
 
 .content {
