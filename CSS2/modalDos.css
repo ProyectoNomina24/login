@@ -1,5 +1,4 @@
 
-
 .modalDos-container{
     display: flex;
     background-color: rgba(0,0,0,0.2);
@@ -12,7 +11,7 @@
     left: 0;
     height: 100vh;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 70px;
     margin-left: 0px;
 }
 .show-Dos{
@@ -61,3 +60,14 @@
      4px 4px 5px 0px rgba(0,0,0,.1)
 }
 
+/* Estilos para dispositivos pequeños */
+@media screen and (max-width: 768px) {
+    .modalDos-container {
+        margin-top: 0; /* Eliminar el margen superior */
+    }
+    .modalDos {
+        width: 90%; /* Modificar el ancho para ser responsivo */
+        margin: 50px auto; /* Centrar el modal en la pantalla */
+        padding: 20px; /* Reducir el relleno */
+    }
+}

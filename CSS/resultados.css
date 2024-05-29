@@ -28,3 +28,19 @@
 #tablaResultados th {
     background-color: #f2f2f2;
 }
+/* Estilos para dispositivos pequeños */
+@media screen and (max-width: 768px) {
+    #tablaResultados {
+        overflow-x: auto; /* Permite desplazar horizontalmente en pantallas pequeñas */
+        max-width: 80%; /* Asegura que la tabla no se desborde del modal */
+        margin-top: 10px; /* Eliminar el margen superior */
+        margin-left: 10px; /* Eliminar el margen izquierdo */
+    }
+
+    #tablaResultados th,
+    #tablaResultados td {
+        width: 90%; /* Ancho automático para cada celda en dispositivos pequeños */
+        font-size: 12px; /* Tamaño de fuente más pequeño para dispositivos pequeños */
+        padding: 5px; /* Reducir el relleno de las celdas */
+    }
+}

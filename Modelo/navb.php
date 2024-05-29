@@ -38,6 +38,11 @@ if (isset($_SESSION['usuario_id'])) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <body>
+  <div class="hamburger">
+    <div class="_layer -top"></div>
+    <div class="_layer -mid"></div>
+    <div class="_layer -bottom"></div>
+  </div>
   <!--INICIO NAVBAR-->
   <div class="nav" id="main-nav">
     <input type="checkbox" id="nav-check">
@@ -55,14 +60,12 @@ if (isset($_SESSION['usuario_id'])) {
       <a href="#" target="_blank"><i class="fa-solid fa-volume-off"></i></a>
       <a href="#" target="_blank"><i class="fa-regular fa-bell"></i></a>
       <img class="user-profile" src="/imagenes/user2.png" alt="">
+      <?php if (!empty($user)) : ?>
+         <p><?= $user['email']; ?>
 
     </div>
   </div>
   <!--FIN NAVBAR-->
-
-  <center> <?php if (!empty($user)) : ?>
-      <br style=""><?= $user['email']; ?>
-  </center>
 
   <!--INICIO CALCULADORA-->
   <div id="contenido1" style="display: none;">

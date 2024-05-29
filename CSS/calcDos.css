@@ -13,7 +13,7 @@
     /* Agrega bordes redondeados */
     max-width: 300px;
     /* Define un ancho máximo */
-    margin-top: 5px;
+    margin-top: 10px;
     padding-top: 5px;
     margin-left: 42%;
     font-weight: bold;
@@ -80,4 +80,11 @@
     flex-direction: column;
     align-items: center;
   }
+  @media screen and (max-width: 768px) {
+    .calcDos{
+     margin-top: 80px;
+     font-size: 12px; /* Tamaño de fuente más pequeño para dispositivos pequeños */
+     right: 100px;
+    }
+   }
  
