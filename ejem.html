@@ -3,42 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/calc.css">
-    <title>Calculadora de Nómina</title>
+    <title>Calculadora de Días de Vacaciones</title>
 </head>
 <body>
-<nav class="calc">
-<h1>Calculadora de Nómina</h1>
-<div id="formulario">
-    <h2>Datos del Empleado</h2>
-    <label for="fechaInicio">Fecha de Inicio:</label>
-    <input type="date" id="fechaInicio" required>
+    <h2>Calculadora de Días de Vacaciones</h2>
+    <form id="formulario">
+        <label for="fechaInicio">Fecha de inicio del empleo:</label>
+        <input type="date" id="fechaInicio" name="fechaInicio" required><br><br>
+        
+        <label for="fechaFinal">Fecha de finalización del empleo:</label>
+        <input type="date" id="fechaFinal" name="fechaFinal" required><br><br>
+        
+        <button type="submit">Calcular días de vacaciones</button>
+    </form>
 
-    <label for="fechaFinal">Fecha Final:</label>
-    <input type="date" id="fechaFinal" required> 
-    <label for="salarioMensual">Salario Mensual:</label>
-    <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual" required>
+    <div id="resultado"></div>
 
-    <label for="auxilioTransporte">Auxilio de Transporte:</label>
-    <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte" required>
+    <script>
+        document.getElementById('formulario').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe por defecto
+            
+            const fechaInicio = new Date(document.getElementById('fechaInicio').value);
+            const fechaFinal = new Date(document.getElementById('fechaFinal').value);
+            
+            const diasTrabajados = (fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24);
 
-    <label for="pagosExtras">Pagos Extras:</label>
-    <input type="number" id="pagosExtras" placeholder="Ingrese los pagos extras">
+            // Se asume un año laboral de 360 días en Colombia
+            const diasVacacionesPorAno = 15; // Mínimo de días de vacaciones en Colombia
+            const diasVacaciones = (diasTrabajados / 360) * diasVacacionesPorAno;
 
-    <label for="otrasDeducciones">Otras Deducciones:</label>
-    <input type="number" id="otrasDeducciones" placeholder="Ingrese sus otras deducciones">
-
-    <button onclick="calcularMiNomina()">Calcular Nómina</button>
-</div>
-
-<div id="resultados">
-    <h2>Resultado</h2>
-    <div id="salarioNetoResult"></div>
-</div>
-</nav>
-<script src="../JS/otro.js">
-
-</script>
-
+            document.getElementById('resultado').textContent = "Días de vacaciones calculados: " + diasVacaciones.toFixed(2);
+        });
+    </script>
 </body>
 </html>

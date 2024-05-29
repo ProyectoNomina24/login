@@ -24,6 +24,9 @@
 #tablaResultados td {
     color: black;
 }
+#tablaResultados tr {
+    width: 300px;
+}
 
 #tablaResultados th {
     background-color: #f2f2f2;

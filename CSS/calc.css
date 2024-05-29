@@ -123,8 +123,9 @@ label {
 #tablaResultados th,
 #tablaResultados td {
   border: 1px solid #ccc;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
+  width: 500px;
 }
 
 #tablaResultados th {

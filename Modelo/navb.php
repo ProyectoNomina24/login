@@ -89,6 +89,7 @@
         <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
 
         <button class="btn-cal" id="open" onclick="calcularNomina(); manejarModal();">Calcular Nómina</button>
+        
       </div>
 
 
@@ -102,6 +103,7 @@
                 <th>Intereses sobre Cesantías</th>
                 <th>Prima de Servicios</th>
                 <th>Vacaciones</th>
+                <th>Dias Vacaciones</th>
                 <th>Total a Pagar</th>
               </tr>
             </thead>
@@ -111,6 +113,7 @@
                 <td id="interesesCesantiasTotalResult"></td>
                 <td id="primaServiciosTotalResult"></td>
                 <td id="vacacionesTotalResult"></td>
+                <td id="diasresultado"></td>
                 <td id="salarioTotalResult"></td>
               </tr>
             </tbody>
@@ -120,6 +123,8 @@
       </div>
     </nav>
   </div>
+
+ 
 
   <!--CALCULADORA DOS-->
 
@@ -193,70 +198,6 @@
     `;
     }
   </script>
-
-<script>
-    function generarPDF() {
-        // Recopilar datos del formulario
-        const fechaInicio = document.getElementById('Inicio').value;
-        const fechaFinal = document.getElementById('Final').value;
-        const salarioMensual = parseFloat(document.getElementById('salario').value);
-        const auxilioTransporte = parseFloat(document.getElementById('auxilio').value) || 0;
-        const pagosExtras = parseFloat(document.getElementById('Extras').value) || 0;
-        const otrasDeducciones = parseFloat(document.getElementById('Deducciones').value) || 0;
-
-        // Realizar cálculos
-        const diasTrabajados = Math.ceil((new Date(fechaFinal) - new Date(fechaInicio)) / (1000 * 60 * 60 * 24));
-        const salarioBruto = salarioMensual + auxilioTransporte;
-        const desDeducciones = salarioBruto * 0.08;
-        const deducciones = salarioBruto - desDeducciones;
-        const salarioNeto = ((salarioBruto + pagosExtras) - otrasDeducciones) / 2;
-
-        // Construir el objeto con los datos a enviar al servidor
-        const data = {
-            fechaInicio: fechaInicio,
-            fechaFinal: fechaFinal,
-            salarioMensual: salarioMensual,
-            auxilioTransporte: auxilioTransporte,
-            pagosExtras: pagosExtras,
-            otrasDeducciones: otrasDeducciones,
-            salarioNeto: salarioNeto
-        };
-
-        // Enviar los datos al servidor para generar el PDF
-        fetch('../Vista/comprobantepdf.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud');
-            }
-            return response.blob();
-        })
-        .then(blob => {
-            // Crear un objeto URL para el blob
-            const url = window.URL.createObjectURL(blob);
-
-            // Crear un enlace para descargar el PDF
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'comprobante.pdf';
-            document.body.appendChild(a);
-            a.click();
-
-            // Limpiar el objeto URL
-            window.URL.revokeObjectURL(url);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-</script>
-
-
 
 
 

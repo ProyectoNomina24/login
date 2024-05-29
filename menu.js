@@ -15,7 +15,7 @@ function cargarMenu() {
                     
                 </li>
                 <li>
-                    <a href="#">
+                <a href="#">
                         <i class="fa-solid fa-gamepad"></i>
                         <span>Torre de control</span>
                     </a>
@@ -27,13 +27,13 @@ function cargarMenu() {
                     </a>
                 </li>
                 <li>
-                    <a href="www.google.com">
+                <a class="links" href="#" onclick="mostrarContenido('contenido4')">
                         <i class="fa-regular fa-folder-open"></i>
                         <span>Historial</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                <a class="links" href="#" onclick="mostrarContenido('contenido3')">
                         <i class="fa-solid fa-user-group"></i>
                         <span>Personas</span>
                     </a>

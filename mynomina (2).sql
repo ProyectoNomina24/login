@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2024 a las 21:45:05
+-- Tiempo de generación: 25-05-2024 a las 19:26:55
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -94,19 +94,17 @@ CREATE TABLE `usuario` (
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `idArea` int(10) NOT NULL
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `identificacion`, `nombre`, `apellido`, `email`, `password`, `idArea`) VALUES
-(67, '1039701265', 'alex', 'munoz', 'aaalzatemes@cesde.net', '$2y$10$TJCI2Ln/dTjg3S8orT./z.YMP82KdhUZwx1GZaiMz9HBWDSFsgSwi', 1),
-(68, '1039705317', 'eduar', 'munoz', 'aaalzatemes@cesde.net', '$2y$10$fWPOFn74P7XsN/mE5eGSMeDUJSDvqh/nKxLFLD8oH4iV2MD9i0m8K', 1),
-(69, '1039701267', 'alex', 'alzate', 'aaalzatemes@cesde.net', '$2y$10$L99rh4MVq015NFFOVclcauqgE2mbfKWextNcnvi9fz/FN62Ep658y', 1),
-(73, '654321', 'eduar', 'munoz', 'xeduarkk@gmail.com', '$2y$10$/ZEg74Q1NpLJN45Ws6qJ8.CSJXf0M/3RHKkHf/OgQTv.S3xD94cXy', 1);
+INSERT INTO `usuario` (`id`, `identificacion`, `nombre`, `apellido`, `email`, `password`) VALUES
+(67, '1039701265', 'alex', 'alzate', 'aaalzatemes@cesde.net', '$2y$10$TJCI2Ln/dTjg3S8orT./z.YMP82KdhUZwx1GZaiMz9HBWDSFsgSwi'),
+(75, '1039705317', 'eduar', 'munoz', 'xeduarkk@gmail.com', '$2y$10$u1p.td.x1OhXdwKFyHGMu.np.h0C7EGhWfStixqV6xyb/hqSngmei'),
+(107, '454545445', 'eduar', 'munoz', 'xeduarkk@gmail.com', '$2y$10$qLTWJ5SjiR6o0lHoAjTqeO0LgUbQUE3sG9TWZooxm0s7IkGsAM/I2');
 
 --
 -- Índices para tablas volcadas
@@ -145,8 +143,7 @@ ALTER TABLE `salario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `identificacion` (`identificacion`),
-  ADD KEY `idArea` (`idArea`);
+  ADD UNIQUE KEY `identificacion` (`identificacion`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -180,7 +177,7 @@ ALTER TABLE `salario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- Restricciones para tablas volcadas
@@ -197,12 +194,6 @@ ALTER TABLE `contrato`
 --
 ALTER TABLE `salario`
   ADD CONSTRAINT `salario_ibfk_1` FOREIGN KEY (`idContrato`) REFERENCES `contrato` (`id_contrato`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idArea`) REFERENCES `area` (`id_area`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
