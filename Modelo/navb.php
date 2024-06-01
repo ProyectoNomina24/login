@@ -40,6 +40,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <body>
+   <div class="hamburger">
+    <div class="_layer -top"></div>
+    <div class="_layer -mid"></div>
+    <div class="_layer -bottom"></div>
+  </div>
   <!--INICIO NAVBAR-->
   <div class="nav" id="main-nav">
     <input type="checkbox" id="nav-check">
@@ -56,15 +61,16 @@
       <a href="#" target="_blank"><i class="fas fa-cog"></i></a>
       <a href="#" target="_blank"><i class="fa-solid fa-volume-off"></i></a>
       <a href="#" target="_blank"><i class="fa-regular fa-bell"></i></a>
-      <div class="user-profile" id="myProfile">
-      </div>
+      <img class="user-profile" src="../imagenes/user2.png" alt="">
+      <?php if (!empty($user)) : ?>
+         <p><?= $user['email']; ?>
+<?php else : ?>
+<?php endif; ?>
     </div>
   </div>
   <!--FIN NAVBAR-->
 
-  <center> <?php if (!empty($user)) : ?>
-      <br style=""><?= $user['email']; ?>
-  </center>
+ 
 
   <!--INICIO CALCULADORA-->
   <div id="contenido1" style="display: none;">
@@ -96,6 +102,7 @@
       <div class="modal-container" id="resultados">
         <div class="modal">
           <h2>Resultados</h2>
+          <div id="diasvacaciones"></div>
           <table id="tablaResultados">
             <thead>
               <tr>
@@ -156,8 +163,9 @@
         </form>
 <div class="modalDos-container" id="resultadoDos">
   <div class="modalDos">
-    <div id="resultado"></div>
-    <!--<div id="pdf"><a href="../Vista/comprobantepdf.php" onclick="generarPDF()" target="_blank">Descargar Comprobante</a></div>-->
+    <div  id="resultado"></div>
+    
+    <div id="pdf"><a href="../Vista/generar_pdf.php" onclick="generarPDF()" target="_blank">Descargar Comprobante</a></div>
     <button class="cerrar-modalDos" id="btn-cerrar">Cerrar</button>
   </div>
 </div>
@@ -168,6 +176,7 @@
   
   <script>
     function calcularMiNomina() {
+       
       const fechaInicio = new Date(document.getElementById('Inicio').value);
       const fechaFinal = new Date(document.getElementById('Final').value);
       const salarioMensual = parseFloat(document.getElementById('salario').value);
@@ -190,14 +199,47 @@
 
       // Formatear el salario neto con separadores de decenas de mil
       const salarioNetoFormateado = salarioNeto.toLocaleString();
-
+      console.log(salarioNetoFormateado);
+      
       // Mostrar el resultado
+      
       document.getElementById('resultado').innerHTML = `
        
-        <p>Total a Pagar: $${salarioNetoFormateado}</p>
+        <p style="color: black;">Total a Pagar: $${salarioNetoFormateado}</p>
+        
     `;
     }
   </script>
+ 
+  
+ 
+ <script>
+    function generarPDF() {
+    // Obtener el total a pagar
+    const totalAPagar = document.getElementById('resultado').innerText.split(': ')[1];
+    const Salario = document.getElementById('salario').value;
+    const Auxiliot = document.getElementById('auxilio').value;
+    const Extra = document.getElementById('Extras').value;
+    const Deduccion = document.getElementById('Deducciones').value;
+    
+
+    // Imprimir el valor para verificar
+    console.log("Valor de totalAPagar:", totalAPagar);
+    console.log("Valor del salario:", Salario);
+    
+    
+
+    // Redirigir al archivo PHP con el total y el nombre de usuario como parámetros GET
+    window.location.href = `../Vista/generar_pdf.php?totalAPagar=${totalAPagar}&Salario=${Salario}&Auxiliot=${Auxiliot}&Extra=${Extra}&Deduccion=${Deduccion}`;
+}
+
+</script>
+
+
+
+
+
+
 
 
 
@@ -205,8 +247,7 @@
 
   <br>
   <br>
-<?php else : ?>
-<?php endif; ?>
+
 
 
 
@@ -219,5 +260,4 @@
 
 
 </body>
-
 </html>

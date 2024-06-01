@@ -1,39 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Días de Vacaciones</title>
-</head>
-<body>
-    <h2>Calculadora de Días de Vacaciones</h2>
-    <form id="formulario">
-        <label for="fechaInicio">Fecha de inicio del empleo:</label>
-        <input type="date" id="fechaInicio" name="fechaInicio" required><br><br>
-        
-        <label for="fechaFinal">Fecha de finalización del empleo:</label>
-        <input type="date" id="fechaFinal" name="fechaFinal" required><br><br>
-        
-        <button type="submit">Calcular días de vacaciones</button>
-    </form>
+require "../fpdf/fpdf.php";
 
-    <div id="resultado"></div>
+$pdf = new FPDF("p", "mm", "letter");
+$pdf->AddPage();
+$pdf->SetFont("Arial", "B", 12);
+$pdf->Cell(190, 5, "Reporte de Usuario", 0, 1, "C");
 
-    <script>
-        document.getElementById('formulario').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar que el formulario se envíe por defecto
-            
-            const fechaInicio = new Date(document.getElementById('fechaInicio').value);
-            const fechaFinal = new Date(document.getElementById('fechaFinal').value);
-            
-            const diasTrabajados = (fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24);
+$pdf->Ln(2);
 
-            // Se asume un año laboral de 360 días en Colombia
-            const diasVacacionesPorAno = 15; // Mínimo de días de vacaciones en Colombia
-            const diasVacaciones = (diasTrabajados / 360) * diasVacacionesPorAno;
+$pdf->SetFont("Arial", "B", 10);
+$pdf->Cell(40, 7, "Identificacion", 1, 0, "C");
+$pdf->Cell(40, 7, "Nombre", 1, 0, "C");
+$pdf->Cell(40, 7, "Apellido", 1, 0, "C");
+$pdf->Cell(70, 7, "Email", 1, 1, "C");
 
-            document.getElementById('resultado').textContent = "Días de vacaciones calculados: " + diasVacaciones.toFixed(2);
-        });
-    </script>
-</body>
-</html>
+$pdf->SetFont("Arial", "", 10);
+
+$pdf->Cell(40, 7, $user['identificacion'], 1, 0, "C");
+$pdf->Cell(40, 7, $user['nombre'], 1, 0, "C");
+$pdf->Cell(40, 7, $user['apellido'], 1, 0, "C");
+$pdf->Cell(70, 7, $user['email'], 1, 1, "C");
+
+$pdf->Output();

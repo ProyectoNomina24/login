@@ -14,13 +14,15 @@
     width: 100%;
     margin-top: 60px;
     margin-left: 0px;
+    
 }
 .show-Dos{
     pointer-events: auto;
     opacity: 1;
+    
 }
 .modalDos{
-    background-color: #fff;
+    background-color: transparent;
     width: 500px;
     margin-top: 50px;
     margin-left: 50px;
@@ -29,7 +31,9 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     text-align: center;
+    
 }
+
 .cerrar-modalDos{
     display: flex;
     align-items: center;

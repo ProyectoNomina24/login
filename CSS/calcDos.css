@@ -74,6 +74,7 @@
   #resultado {
     margin-top: 20px;
     font-weight: bold;
+    color:black;
   }
   .calcDos{
     display: flex;
