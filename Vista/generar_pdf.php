@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 
 require '../Controler/database.php';
@@ -30,14 +31,14 @@ $Extra = isset($_GET['Extra']) ? $_GET['Extra'] : 0;
 $Deduccion = isset($_GET['Deduccion']) ? $_GET['Deduccion'] : 0;
 
 
-require('../fpdf/fpdf.php');
+require_once('../tcpdf/tcpdf.php');
 
 // Crear una clase PDF extendida de FPDF
-class PDF extends FPDF {
+class PDF extends TCPDF {
     function Header() {
         // Cabecera
-        $this->SetFont('Arial', 'B', 12);
-        $this->Cell(0, 10, 'Comprobante de Pago', 0, 1, 'C');
+        $this->SetFont('helvetica', 'B', 12);
+        $this->Cell(0, 10, 'Comprobante de Pago de Nomina', 0, 1, 'C');
         $this->Cell(0, 10, 'Usuario', 0, 1, 'C');
         $this->Ln(10);
     }
@@ -45,8 +46,8 @@ class PDF extends FPDF {
     function Footer() {
         // Pie de página
         $this->SetY(-15);
-        $this->SetFont('Arial', 'I', 8);
-        $this->Cell(0, 10, 'Pagina ' . $this->PageNo(), 0, 0, 'C');
+        $this->SetFont('helvetica', 'B', 12);
+        $this->Cell(0, 10, 'My Nomina 2024 ' . $this->PageNo(), 0, 0, 'C');
     }
 }
 
@@ -54,27 +55,33 @@ class PDF extends FPDF {
 $pdf = new PDF();
 $pdf->AddPage();
 
-// Agregar la imagen en el centro
-$pdf->Image('../imagenes/moneda.png', 40, 40, 120);
+$pdf->Ln(10);
+$pdf->Ln(10);
+$pdf->Ln(10);
 
 // Agregar el contenido al PDF
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('helvetica', 'B', 12);
 $pdf->Cell(40, 10, "Identificacion", 1, 0 , "C");
 $pdf->Cell(40, 10, "Nombre", 1, 0 , "C");
 $pdf->Cell(40, 10, "Apellido", 1, 0 , "C");
 $pdf->Cell(70, 10, "Correo", 1, 1 , "C");
 
-$pdf->SetFont('Arial', '', 12);
+$pdf->SetFont('helvetica', 'B', 12);
 $pdf->Cell(40, 7, $user['identificacion'], 1, 0, "C");
 $pdf->Cell(40, 7, $user['nombre'], 1, 0, "C");
 $pdf->Cell(40, 7, $user['apellido'], 1, 0, "C");
 $pdf->Cell(70, 7, $user['email'], 1, 1, "C");
+$pdf->Ln(10);
+$pdf->Ln(10);
 $pdf->Cell(0, 10, "Salario: $Salario", 0, 1);
 $pdf->Cell(0, 10, "Auxilio de Transporte: $Auxiliot", 0, 1);
 $pdf->Cell(0, 10, "Extras: $Extra", 0, 1);
 $pdf->Cell(0, 10, "Otras Deducciones: $Deduccion", 0, 1);
 $pdf->Cell(0, 10, "Total a Pagar: $totalAPagar", 0, 1);
 
+$pdf->SetProtection(array(), $user['identificacion'], null, null, 'UserPassword');
+
+$pdf_content = ob_get_clean();
 // Generar el PDF
 $pdf->Output('comprobante_pago.pdf', 'D');
 
