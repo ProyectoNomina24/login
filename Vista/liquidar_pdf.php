@@ -63,15 +63,15 @@ $pdf->Ln(10);
 // Agregar el contenido al PDF
 $pdf->SetFont('helvetica', 'B', 12);
 $pdf->Cell(40, 10, "Identificacion", 1, 0 , "C");
-$pdf->Cell(40, 10, "Nombre", 1, 0 , "C");
-$pdf->Cell(40, 10, "Apellido", 1, 0 , "C");
-$pdf->Cell(70, 10, "Correo", 1, 1 , "C");
+$pdf->Cell(50, 10, "Nombre", 1, 0 , "C");
+$pdf->Cell(50, 10, "Apellido", 1, 0 , "C");
+$pdf->Cell(55, 10, "Correo", 1, 1 , "C");
 
 $pdf->SetFont('helvetica', 'B', 12);
 $pdf->Cell(40, 7, $user['identificacion'], 1, 0, "C");
-$pdf->Cell(40, 7, $user['nombre'], 1, 0, "C");
-$pdf->Cell(40, 7, $user['apellido'], 1, 0, "C");
-$pdf->Cell(70, 7, $user['email'], 1, 1, "C");
+$pdf->Cell(50, 7, $user['nombre'], 1, 0, "C");
+$pdf->Cell(50, 7, $user['apellido'], 1, 0, "C");
+$pdf->Cell(55, 7, $user['email'], 1, 1, "C");
 $pdf->Ln(10);
 $pdf->Ln(10);
 
