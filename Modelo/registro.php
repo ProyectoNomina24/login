@@ -18,7 +18,7 @@ if (!empty($_POST['nombre']) || !empty($_POST['apellido']) || !empty($_POST['ide
 try{
   
   if ($stmt->execute()) {
-    $message = 'Usuario creado correctamente';
+    $message = '<span style="color: white;text-align: center; fonnt-size:25px; font-weight: bold;">Usuario creado correctamente</span>';
   } else {
     $message = 'Lo siento, no se puedo crear su cuenta, verifique nuevamente';
   }
@@ -39,9 +39,7 @@ try{
 
 <body>
   
-  <?php if (!empty($message)):?>
-    <p><?= $message?></p>
-    <?php endif; ?>
+  
     <br>
     <br>
   <div class="login-box">
@@ -74,9 +72,12 @@ try{
     <label>Ingrese su contraseña</label>
   </div>
   <button type="submit" class="custom-btn btn"><span>Enviar</span></button>
+  <br><br>
+  <div id="mensaje" style="display:none;"><?php echo $message; ?></div>
 </form>
   </div>
 
   <script src="../JS/registrarse.js"></script>
+  <script src="../JS/mensaje.js"></script>
 </body>
 </html>

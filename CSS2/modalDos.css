@@ -11,13 +11,17 @@
     left: 0;
     height: 100vh;
     width: 100%;
-    margin-top: 70px;
+    margin-top: 60px;
     margin-left: 0px;
 }
 .show-Dos{
     pointer-events: auto;
     opacity: 1;
 }
+.res{
+    color:black;
+}
+
 .modalDos{
     background-color: #fff;
     width: 500px;
@@ -28,6 +32,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     text-align: center;
+    color:black;
 }
 .cerrar-modalDos{
     display: flex;
@@ -60,14 +65,4 @@
      4px 4px 5px 0px rgba(0,0,0,.1)
 }
 
-/* Estilos para dispositivos pequeños */
-@media screen and (max-width: 768px) {
-    .modalDos-container {
-        margin-top: 0; /* Eliminar el margen superior */
-    }
-    .modalDos {
-        width: 90%; /* Modificar el ancho para ser responsivo */
-        margin: 50px auto; /* Centrar el modal en la pantalla */
-        padding: 20px; /* Reducir el relleno */
-    }
-}
+

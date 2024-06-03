@@ -1,23 +1,25 @@
 <?php
-session_start();
+  session_start();
 
-require '../Controler/database.php';
+  require '../Controler/database.php';
 
-if (isset($_SESSION['usuario_id'])) {
+  if (isset($_SESSION['usuario_id'])) {
+    
+    $records = $conn->prepare('SELECT id, email, password FROM usuario WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['usuario_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
 
-  $records = $conn->prepare('SELECT id, email, password FROM usuario WHERE id = :id');
-  $records->bindParam(':id', $_SESSION['usuario_id']);
-  $records->execute();
-  $results = $records->fetch(PDO::FETCH_ASSOC);
-
-  if ($results) {
-
-    $user = $results;
+    if ($results) {
+    
+      $user = $results;
+      
+    }
+    
+  } else {
+    header("Location: login.php");
+    exit;
   }
-} else {
-  header("Location: login.php");
-  exit;
-}
 ?>
 
 
@@ -38,7 +40,7 @@ if (isset($_SESSION['usuario_id'])) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <body>
-  <div class="hamburger">
+   <div class="hamburger">
     <div class="_layer -top"></div>
     <div class="_layer -mid"></div>
     <div class="_layer -bottom"></div>
@@ -59,13 +61,16 @@ if (isset($_SESSION['usuario_id'])) {
       <a href="#" target="_blank"><i class="fas fa-cog"></i></a>
       <a href="#" target="_blank"><i class="fa-solid fa-volume-off"></i></a>
       <a href="#" target="_blank"><i class="fa-regular fa-bell"></i></a>
-      <img class="user-profile" src="/imagenes/user2.png" alt="">
+      <img class="user-profile" src="../imagenes/user2.png" alt="">
       <?php if (!empty($user)) : ?>
          <p><?= $user['email']; ?>
-
+<?php else : ?>
+<?php endif; ?>
     </div>
   </div>
   <!--FIN NAVBAR-->
+
+ 
 
   <!--INICIO CALCULADORA-->
   <div id="contenido1" style="display: none;">
@@ -90,12 +95,14 @@ if (isset($_SESSION['usuario_id'])) {
         <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
 
         <button class="btn-cal" id="open" onclick="calcularNomina(); manejarModal();">Calcular Nómina</button>
+        
       </div>
 
 
       <div class="modal-container" id="resultados">
         <div class="modal">
           <h2>Resultados</h2>
+          <div id="diasvacaciones"></div>
           <table id="tablaResultados">
             <thead>
               <tr>
@@ -103,6 +110,7 @@ if (isset($_SESSION['usuario_id'])) {
                 <th>Intereses sobre Cesantías</th>
                 <th>Prima de Servicios</th>
                 <th>Vacaciones</th>
+                <th>Dias Vacaciones</th>
                 <th>Total a Pagar</th>
               </tr>
             </thead>
@@ -112,15 +120,19 @@ if (isset($_SESSION['usuario_id'])) {
                 <td id="interesesCesantiasTotalResult"></td>
                 <td id="primaServiciosTotalResult"></td>
                 <td id="vacacionesTotalResult"></td>
+                <td id="diasresultado"></td>
                 <td id="salarioTotalResult"></td>
               </tr>
             </tbody>
           </table>
+          <div id="pdf"><a href="../Vista/liquidar_pdf.php" style="color:black" style="text-decoration:none;" onclick="generarLiquidarPDF()" target="_blank">Descargar Comprobante</a></div>
           <button class="cerrar-modal" id="btn-close">Cerrar</button>
         </div>
       </div>
     </nav>
   </div>
+  
+
 
   <!--CALCULADORA DOS-->
 
@@ -150,20 +162,22 @@ if (isset($_SESSION['usuario_id'])) {
 
           <button class="btn-liquidar" id="openDos" type="button" onclick="calcularMiNomina(); manejarModalDos();">Calcular Nómina</button>
         </form>
-        <div class="modalDos-container" id="resultadoDos">
-          <div class="modalDos">
-            <div id="resultado"></div>
-            <!--<div id="pdf"><a href="../Vista/comprobantepdf.php" onclick="generarPDF()" target="_blank">Descargar Comprobante</a></div>-->
-            <button class="cerrar-modalDos" id="btn-cerrar">Cerrar</button>
-          </div>
-        </div>
+<div class="modalDos-container" id="resultadoDos">
+  <div class="modalDos">
+    <div  id="resultado"></div>
+    
+    <div id="pdf"><a class="link_pdf" href="../Vista/generar_pdf.php" style="color:black" style="text-decoration:none;" onclick="generarPDF()" target="_blank">Descargar Comprobante</a></div>
+    <button class="cerrar-modalDos" id="btn-cerrar">Cerrar</button>
+  </div>
+</div>
       </div>
     </nav>
-
+  
   </div>
-
+  
   <script>
     function calcularMiNomina() {
+       
       const fechaInicio = new Date(document.getElementById('Inicio').value);
       const fechaFinal = new Date(document.getElementById('Final').value);
       const salarioMensual = parseFloat(document.getElementById('salario').value);
@@ -186,89 +200,106 @@ if (isset($_SESSION['usuario_id'])) {
 
       // Formatear el salario neto con separadores de decenas de mil
       const salarioNetoFormateado = salarioNeto.toLocaleString();
-
+      console.log(salarioNetoFormateado);
+      
       // Mostrar el resultado
+      
       document.getElementById('resultado').innerHTML = `
        
-        <p>Total a Pagar: $${salarioNetoFormateado}</p>
+        <p style="color: black;">Total a Pagar: $${salarioNetoFormateado}</p>
+        
     `;
     }
   </script>
-
-  <script>
+ 
+  
+ 
+ <script>
     function generarPDF() {
-      // Recopilar datos del formulario
-      const fechaInicio = document.getElementById('Inicio').value;
-      const fechaFinal = document.getElementById('Final').value;
-      const salarioMensual = parseFloat(document.getElementById('salario').value);
-      const auxilioTransporte = parseFloat(document.getElementById('auxilio').value) || 0;
-      const pagosExtras = parseFloat(document.getElementById('Extras').value) || 0;
-      const otrasDeducciones = parseFloat(document.getElementById('Deducciones').value) || 0;
+    // Obtener el total a pagar
+    const totalAPagar = document.getElementById('resultado').innerText.split(': ')[1];
+    const Salario = document.getElementById('salario').value;
+    const Auxiliot = document.getElementById('auxilio').value;
+    const Extra = document.getElementById('Extras').value;
+    const Deduccion = document.getElementById('Deducciones').value;
+    
 
-      // Realizar cálculos
-      const diasTrabajados = Math.ceil((new Date(fechaFinal) - new Date(fechaInicio)) / (1000 * 60 * 60 * 24));
-      const salarioBruto = salarioMensual + auxilioTransporte;
-      const desDeducciones = salarioBruto * 0.08;
-      const deducciones = salarioBruto - desDeducciones;
-      const salarioNeto = ((salarioBruto + pagosExtras) - otrasDeducciones) / 2;
+    // Imprimir el valor para verificar
+    console.log("Valor de totalAPagar:", totalAPagar);
+    console.log("Valor del salario:", Salario);
+    
+    
 
-      // Construir el objeto con los datos a enviar al servidor
-      const data = {
-        fechaInicio: fechaInicio,
-        fechaFinal: fechaFinal,
-        salarioMensual: salarioMensual,
-        auxilioTransporte: auxilioTransporte,
-        pagosExtras: pagosExtras,
-        otrasDeducciones: otrasDeducciones,
-        salarioNeto: salarioNeto
-      };
+    // Redirigir al archivo PHP con el total y el nombre de usuario como parámetros GET
+    window.location.href = `../Vista/generar_pdf.php?totalAPagar=${totalAPagar}&Salario=${Salario}&Auxiliot=${Auxiliot}&Extra=${Extra}&Deduccion=${Deduccion}`;
+}
 
-      // Enviar los datos al servidor para generar el PDF
-      fetch('../Vista/comprobantepdf.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error en la solicitud');
-          }
-          return response.blob();
-        })
-        .then(blob => {
-          // Crear un objeto URL para el blob
-          const url = window.URL.createObjectURL(blob);
-
-          // Crear un enlace para descargar el PDF
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'comprobante.pdf';
-          document.body.appendChild(a);
-          a.click();
-
-          // Limpiar el objeto URL
-          window.URL.revokeObjectURL(url);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    }
-  </script>
-
-
-
-
-
+</script>
 
 
   <br>
   <br>
-<?php else : ?>
-<?php endif; ?>
 
 
+
+  <!--Agregar-->
+  <div id="contenido3" style="display: none;">
+      
+     <?php
+require '../Controler/database.php';
+require '../Controler/validaragregar.php';
+
+?> 
+      
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+</head>
+<body>
+   <center>
+       <h2>Registro de Empleados</h2>
+      <?php echo $mensaje; ?>
+       <form action="../Modelo/navb.php" method="post">
+           <label for="identificacion">Identificación:</label>
+           <input type="text" id="identificacion" name="identificacion" required><br><br>
+           
+           <label for="nombre">Nombre:</label>
+           <input type="text" id="nombre" name="nombre" required><br><br>
+           
+           <label for="apellido">Apellido:</label>
+           <input type="text" id="apellido" name="apellido" required><br><br>
+           
+           <label for="salario">Salario:</label>
+           <input type="number" id="salario" name="salario" required><br><br>
+           
+           <input type="submit" value="Registrar">
+       </form>
+
+      
+       </table>
+   </center>
+</body>
+</html>
+
+ <!--CONSULTAR-->
+
+<div id="contenido4" style="display: none;">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <center><h1>hola</h1></center>
+</body>
+</html>
 
 
 <script src="../menu.js"></script>
@@ -276,8 +307,8 @@ if (isset($_SESSION['usuario_id'])) {
 <script src="../JS/nomina.js"></script>
 <script src="../JS/modal.js"></script>
 <script src="../JS/modalDos.js"></script>
+<script src="../JS/liquidarpdf.js"></script>
 
 
 </body>
-
 </html>
