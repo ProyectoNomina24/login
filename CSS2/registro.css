@@ -19,7 +19,7 @@ html {
     font-weight: 600;
     }
     .login-link p a:hover{
-        text-decoration: underline;
+        text-decoration: none;
         color: #FA289E;
     }
   .login-box {
@@ -233,5 +233,12 @@ html {
   }
   .btn span:hover:after {
     width: 100%;
+  }
+  a{
+    background-color: #FA289E;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 5px;
   }
   

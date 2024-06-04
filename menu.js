@@ -76,5 +76,7 @@ if (menuButton) {
     menuButton.addEventListener('click', toggleMenu);
 }
 
-// Llamar a la función cargarMenu al cargar la página
-window.onload = cargarMenu;
+// Llamar a la función cargarMenu después de 3 segundos al cargar la página
+window.onload = function() {
+    setTimeout(cargarMenu, 3000);
+};

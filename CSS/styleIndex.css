@@ -131,7 +131,8 @@ header a {
 
   .msjBienvenido,
   .msjBienvenido2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    position: relative;
   }
 
   .link-1,
@@ -277,6 +278,7 @@ li:hover a.hasDropdown:after {
 .container.has-multi .container__listItem {
   flex-basis: auto;
   flex: 1;
+  left: 0;
 }
 
 .container.has-multi .container__list:not(:last-child) {

@@ -24,7 +24,7 @@
       <div class="logo-container">
         <img class="logoM" src="./imagenes/moneda.png" alt="">
 
-        <p class="text-logo"><a href="index.html">My Nomina</a></p>
+        <p class="text-logo"><a href="index.html">My Nómina</a></p>
       </div>
       <li>
         <a class="hasDropdown" href="#">Funciones <i class="fa fa-angle-down"></i></a>
@@ -68,7 +68,7 @@
   </nav>
   <!-- JavaScript para alternar el menú lateral -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       function toggleMenu(event) {
         // Alternar la clase 'is-active' en el botón de hamburguesa
         this.classList.toggle('is-active');
@@ -77,20 +77,20 @@
         // Evitar el comportamiento predeterminado del enlace
         event.preventDefault();
       }
-  
+
       // Obtener el botón de hamburguesa por su clase
       var menuButton = document.querySelector('.hamburger');
-  
+
       // Verificar si el botón de hamburguesa existe antes de agregar un event listener
       if (menuButton) {
         // Agregar un event listener para alternar el menú al hacer clic en el botón de hamburguesa
         menuButton.addEventListener('click', toggleMenu);
       }
-  
+
       const menuItems = document.querySelectorAll('.menu li a.hasDropdown');
-  
+
       menuItems.forEach(item => {
-        item.addEventListener('click', function(e) {
+        item.addEventListener('click', function (e) {
           e.preventDefault();
           const submenu = this.nextElementSibling;
           if (window.innerWidth <= 768) { // Verifica el ancho de la pantalla
@@ -114,7 +114,7 @@
       });
     });
   </script>
-  
+
   <main>
     <section id="section1">
       <div class="image-container">
@@ -123,11 +123,12 @@
       <div class="content">
         <h1 class="main-title">🌊 MY NÓMINA</h1>
         <Br>
-        <h3 class="main-title"> te brinda nómina al instante </h3>
+        <h3 class="main-title"> Te brinda nómina al instante </h3>
         <Br>
         <Br>
         <p class="main-description">Al liberar toda la carga operativa de la nómina, se optimizan los procesos internos
-          de la empresa, permitiendo un enfoque más estratégico y menos administrativo,Esta delegación no solo reduce el
+          de la empresa, permitiendo un enfoque más estratégico y menos administrativo. Esta delegación no solo reduce
+          el
           estrés y la presión sobre el equipo.</p>
         <div class="benefits">
           <div class="benefit-item">
@@ -157,8 +158,8 @@
         <h1>Siempre estarás acompañado de expertos</h1>
         <Br>
         <Br>
-        <p>Nuestro equipo de expertos en MY NOMINA y Seguridad Social siempre estará disponible para que puedas estar
-          tranquilo y disfrutarte tu trabajo como te lo mereces.</p>
+        <p>Nuestro equipo de expertos en MY NÓMINA y Seguridad Social siempre estará disponible para que puedas estar
+          tranquilo y disfrutar tu trabajo como te lo mereces.</p>
         <div class="features">
           <div class="feature-item">Soporte diario</div>
           <div class="feature-item">Acompañamiento</div>
@@ -176,7 +177,7 @@
             <div class="feature-button">Pago planilla PILA</div>
             <div class="feature-button">Afiliaciones</div>
           </div>
-          <h2> MY NOMINA Liquida en poco tiempo</h2>
+          <h2> MY NÓMINA Liquida en poco tiempo</h2>
           <Br>
           <Br>
           <p>Ve más allá de la nómina, la PILA y las afiliaciones a Seguridad Social. Automatiza toda tu nómina,
@@ -200,7 +201,7 @@
   <footer>
     <div class="row">
       <div class="col">
-        <h1 class="logo2">My Nomina</h1>
+        <h1 class="logo2">My Nómina</h1>
         <p>Recibe las últimas actualizaciones y noticias directamente en tu correo electrónico</p>
       </div>
       <div class="col">

@@ -55,6 +55,7 @@ body{
     transform: translateY(-50%);
     font-size: 20px;
 }
+
 .wrapper .remember-forgot{
     display: flex;
     justify-content: space-between;
@@ -70,7 +71,7 @@ body{
     text-decoration: none;
 }
 .remember-forgot a:hover{
-    text-decoration: underline;
+    text-decoration: none;
     color: #FA289E;
 }
 
@@ -103,7 +104,42 @@ text-decoration: none;
 font-weight: 600;
 }
 .register-link p a:hover{
-    text-decoration: underline;
+    text-decoration: none;
     color: #FA289E;
 }
+/* Media Queries */
+@media (min-width: 768px) {
+    .wrapper {
+        width: 80%;
+        max-width: 400px;
+        padding: 30px 40px;
+    }
+
+    .wrapper h1 {
+        font-size: 1.75rem;
+    }
+
+    .input-box input {
+        font-size: 1rem;
+    }
+
+    .input-box i {
+        font-size: 1.25rem;
+    }
+
+    .wrapper .remember-forgot {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+
+    .wrapper .register-link {
+        font-size: 1rem;
+    }
+}
+
+
+
 

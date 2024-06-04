@@ -11,7 +11,7 @@
     left: 0;
     height: 100vh;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 70px;
     margin-left: 0px;
 }
 .show-Dos{
@@ -33,6 +33,17 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     text-align: center;
     color:black;
+}
+/*RESPONSIVE MODAL*/
+@media screen and (max-width: 768px) {
+    .modalDos-container {
+        margin-top: 0; /* Eliminar el margen superior */
+        margin-left: 0; /* Eliminar el margen izquierdo */
+    }
+    .modalDos{
+        margin-right: 20px;
+    }
+    
 }
 .cerrar-modalDos{
     display: flex;
@@ -57,6 +68,37 @@
      4px 4px 5px 0px rgba(0,0,0,.1)
 }
 .cerrar-modalDos:hover{
+    background-color: transparent; /* Cambio a fondo transparente */
+    border: 2px solid #FA289E; /* Añade el estilo de borde */
+    color: #FA289E;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1)
+}
+/*BOTON PDF*/
+.btnpdf2{
+    display: flex;
+    align-items: center;
+    /*centra horizontalmente*/
+    padding: 10px 20px;
+    /* Ajusta el relleno */
+    border: none;
+    /* Elimina el borde */
+    background-color: #FA289E;
+    margin-left: 32%;/*margen hacia la derecha*/
+    margin-top: 20px;
+    /* Color de fondo */
+    color: #fff;
+    /* Color de texto */
+    border-radius: 5px;
+    /* Agrega bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor*/
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1)  
+}
+.btnpdf2:hover{
     background-color: transparent; /* Cambio a fondo transparente */
     border: 2px solid #FA289E; /* Añade el estilo de borde */
     color: #FA289E;

@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="CSS/styleIndex.css">
   <link rel="stylesheet" href="precios.css">
   <link rel="stylesheet" href="CSS/footer.css">
-
+  <link rel="stylesheet" href="./CSS2/acordion.css">
+  <script src="https://kit.fontawesome.com/162e2e5f40.js"></script>
 
 </head>
 
@@ -156,62 +157,45 @@
     </div>
   </section>
 
-  <section class="functionalities-section">
-    <h2 class="functionalities-title">Ver todas las funcionalidades</h2>
-    <div class="accordion">
-      <div class="accordion-item">
-        <button class="accordion-button">
-          MY NOMINA. CESDE y Seguridad Social
-          <span class="arrow">&#9662;</span>
-        </button>
-        <div class="accordion-content">
-          <p>Descripción detallada sobre Nómina y Seguridad Social, incluyendo gestión y procesamiento efectivo dentro
-            de la plataforma.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-button">
-          Complementos de MY NOMINA
-          <span class="arrow">&#9662;</span>
-        </button>
-        <div class="accordion-content">
-          <p>Descripción detallada sobre Complementos de Nómina, incluyendo beneficios adicionales y manejo de bonos y
-            deducciones.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-button">
-          Bienestar Financiero
-          <span class="arrow">&#9662;</span>
-        </button>
-        <div class="accordion-content">
-          <p>Descripción detallada sobre Bienestar Financiero, enfocándose en el bienestar de los empleados a través de
-            gestiones financieras transparentes.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-button">
-          Vinculación
-          <span class="arrow">&#9662;</span>
-        </button>
-        <div class="accordion-content">
-          <p>Descripción detallada sobre Vinculación, abordando procesos de incorporación y adaptación de nuevos
-            empleados a la empresa.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-button">
-          Soporte
-          <span class="arrow">&#9662;</span>
-        </button>
-        <div class="accordion-content">
-          <p>Descripción detallada sobre Soporte, ofreciendo ayuda y asistencia continua para garantizar la operatividad
-            sin interrupciones de los servicios de nómina.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+   <!-- Contenedor -->
+   <ul id="accordion" class="accordion">
+    <li>
+      <div class="link"><i class="fa fa-briefcase"></i>MY NÓMINA-CESDE y Seguridad Social<i class="fa fa-chevron-down"></i></div>
+      <ul class="submenu">
+        <li><a>Descripción detallada sobre Nómina y Seguridad Social</a></li>
+        <li><a>Gestión y procesamiento efectivo dentro de la plataforma</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="link"><i class="fa fa-clipboard"></i>Complementos de MY NOMINA<i class="fa fa-chevron-down"></i></div>
+      <ul class="submenu">
+        <li><a>Descripción detallada sobre Complementos de Nómina</a></li>
+        <li><a>Incluyendo beneficios adicionales y manejo de bonos y deducciones</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="link"><i class="fa fa-heart"></i>Bienestar Financiero<i class="fa fa-chevron-down"></i></div>
+      <ul class="submenu">
+        <li><a>Descripción detallada sobre Bienestar Financiero</a></li>
+        <li><a>Enfocándose en el bienestar de los empleados a través de gestiones financieras transparentes.</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="link"><i class="fa fa-users"></i>Vinculación<i class="fa fa-chevron-down"></i></div>
+      <ul class="submenu">
+        <li><a>Descripción detallada sobre Vinculación</a></li>
+        <li><a>Abordando procesos de incorporación y adaptación de nuevos empleados a la empresa.</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="link"><i class="fa fa-life-ring"></i>Soporte<i class="fa fa-chevron-down"></i></div>
+      <ul class="submenu">
+        <li><a>Descripción detallada sobre Soporte</a></li>
+        <li><a>Ofreciendo ayuda y asistencia continua para garantizar la operatividad sin interrupciones de los servicios de nómina</a></li>
+      </ul>
+    </li>
+  </ul>
+ 
   <footer>
     <div class="row">
       <div class="col">
@@ -259,5 +243,5 @@
   </footer>
 
 </body>
-<script src="https://kit.fontawesome.com/162e2e5f40.js"></script>
+<script src="./JS/acordion.js"></script>
 </html>

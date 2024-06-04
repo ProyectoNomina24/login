@@ -2,130 +2,149 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Bienvenido a Mynomina</title>
+  <meta charset="utf-8" lang="Es">
+  <title>Bienvenido a Mynómina</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <script src="https://kit.fontawesome.com/162e2e5f40.js"></script>
   <link rel="stylesheet" href="CSS/styleIndex.css">
   <link rel="stylesheet" href="CSS/calc.css">
   <link rel="stylesheet" href="CSS/footer.css">
   <link rel="stylesheet" href="precios.css">
-  
-  
+  <link rel="stylesheet" href="./CSS2/load.css">
+
+  <style>
+    /* Estilos para ocultar solo el contenido principal */
+    #main-content{
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="hamburger">
-    <div class="_layer -top"></div>
-    <div class="_layer -mid"></div>
-    <div class="_layer -bottom"></div>
+  <!--CARGA-->
+  <div class="load">
+    <hr />
+    <hr />
+    <hr />
+    <hr />
   </div>
 
-  <!-- Start Navigation Bar -->
-  <nav class="navbar js-navbar">
-    <ul class="menu">
-      <div class="logo-container">
-        <img class="logoM" src="./imagenes/moneda.png" alt="">
-        <p class="text-logo">My Nomina</p>
-      </div>
-      <li>
-        <a class="hasDropdown" href="#">Funciones <i class="fa fa-angle-down"></i></a>
 
-        <ul class="container">
-          <div class="container__list">
-            <div class="container__listItem">
-              <div>Nómina y Seguridad Social</div>
-            </div>
-            <div class="container__listItem">
-              <div>Vinculación</div>
-            </div>
-            <div class="container__listItem">
-              <div>Bienestar Financiero</div>
-            </div>
-          </div>
-        </ul>
-      </li>
-      <li>
-        <a class="hasDropdown" href="#">Recursos<i class="fa fa-angle-down"></i></a>
-        <ul class="container has-multi">
-          <div class="container_list container_list-multi">
-            <div class="container__listItem">
-              <div>Blog</div>
-            </div>
-            <div class="container__listItem">
-              <div>Blibioteca</div>
-            </div>
-            <div class="container__listItem">
-              <div>Centro de ayuda</div>
-            </div>
-        </ul>
-      </li>
-      <li>
-        <a href="quienes_somos.html">Quienes Somos?</a>
-      </li>
-      <li>
-        <a href="index2.html">Precios</a>
-      </li>
-    </ul>
-  </nav>
- <!-- JavaScript para alternar el menú lateral -->
- <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    function toggleMenu(event) {
-      // Alternar la clase 'is-active' en el botón de hamburguesa
-      this.classList.toggle('is-active');
-      // Alternar la clase 'is_active' en el menú de navegación
-      document.querySelector(".navbar").classList.toggle("is_active");
-      // Evitar el comportamiento predeterminado del enlace
-      event.preventDefault();
-    }
+  <div id="main-content">
+    <!--MENU HAMRGUESA-->
+    <div class="hamburger">
+      <div class="_layer -top"></div>
+      <div class="_layer -mid"></div>
+      <div class="_layer -bottom"></div>
+    </div>
 
-    // Obtener el botón de hamburguesa por su clase
-    var menuButton = document.querySelector('.hamburger');
 
-    // Verificar si el botón de hamburguesa existe antes de agregar un event listener
-    if (menuButton) {
-      // Agregar un event listener para alternar el menú al hacer clic en el botón de hamburguesa
-      menuButton.addEventListener('click', toggleMenu);
-    }
+    <!-- Start Navigation Bar -->
+    <nav class="navbar js-navbar">
+      <ul class="menu">
+        <div class="logo-container">
+          <img class="logoM" src="./imagenes/moneda.png" alt="">
 
-    const menuItems = document.querySelectorAll('.menu li a.hasDropdown');
+          <p class="text-logo"><a>My Nómina</a></p>
+        </div>
+        <li>
+          <a class="hasDropdown" href="#">Funciones <i class="fa fa-angle-down"></i></a>
 
-    menuItems.forEach(item => {
-      item.addEventListener('click', function(e) {
-        e.preventDefault();
-        const submenu = this.nextElementSibling;
-        if (window.innerWidth <= 768) { // Verifica el ancho de la pantalla
-          if (submenu.classList.contains('container--is-visible')) {
-            submenu.classList.remove('container--is-visible');
-            // Rotar la flecha hacia arriba cuando el submenú se oculta
-            this.querySelector('i').classList.remove('rotate-down');
-          } else {
-            // Cierra otros submenús abiertos
-            document.querySelectorAll('.container.container--is-visible').forEach(openSubmenu => {
-              openSubmenu.classList.remove('container--is-visible');
-              // Rotar la flecha hacia arriba cuando se cierran otros submenús
-              openSubmenu.previousElementSibling.querySelector('i').classList.remove('rotate-down');
-            });
-            submenu.classList.add('container--is-visible');
-            // Rotar la flecha hacia arriba cuando el submenú se muestra
-            this.querySelector('i').classList.add('rotate-down');
-          }
+          <ul class="container">
+            <div class="container__list">
+              <div class="container__listItem">
+                <div>Nómina y Seguridad Social</div>
+              </div>
+              <div class="container__listItem">
+                <div>Vinculación</div>
+              </div>
+              <div class="container__listItem">
+                <div>Bienestar Financiero</div>
+              </div>
+            </div>
+          </ul>
+        </li>
+        <li>
+          <a class="hasDropdown" href="#">Recursos<i class="fa fa-angle-down"></i></a>
+          <ul class="container has-multi">
+            <div class="container__list container__list-multi">
+              <div class="container__listItem">
+                <div>Blog</div>
+              </div>
+              <div class="container__listItem">
+                <div>Blibioteca</div>
+              </div>
+              <div class="container__listItem">
+                <div>Centro de ayuda</div>
+              </div>
+          </ul>
+        </li>
+        <li>
+          <a href="quienes_somos.html">Quienes Somos?</a>
+        </li>
+        <li>
+          <a href="index2.html">Precios</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- JavaScript para alternar el menú lateral -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        function toggleMenu(event) {
+          // Alternar la clase 'is-active' en el botón de hamburguesa
+          this.classList.toggle('is-active');
+          // Alternar la clase 'is_active' en el menú de navegación
+          document.querySelector(".navbar").classList.toggle("is_active");
+          // Evitar el comportamiento predeterminado del enlace
+          event.preventDefault();
         }
+
+        // Obtener el botón de hamburguesa por su clase
+        var menuButton = document.querySelector('.hamburger');
+
+        // Verificar si el botón de hamburguesa existe antes de agregar un event listener
+        if (menuButton) {
+          // Agregar un event listener para alternar el menú al hacer clic en el botón de hamburguesa
+          menuButton.addEventListener('click', toggleMenu);
+        }
+
+        const menuItems = document.querySelectorAll('.menu li a.hasDropdown');
+
+        menuItems.forEach(item => {
+          item.addEventListener('click', function (e) {
+            e.preventDefault();
+            const submenu = this.nextElementSibling;
+            if (window.innerWidth <= 768) { // Verifica el ancho de la pantalla
+              if (submenu.classList.contains('container--is-visible')) {
+                submenu.classList.remove('container--is-visible');
+                // Rotar la flecha hacia arriba cuando el submenú se oculta
+                this.querySelector('i').classList.remove('rotate-down');
+              } else {
+                // Cierra otros submenús abiertos
+                document.querySelectorAll('.container.container--is-visible').forEach(openSubmenu => {
+                  openSubmenu.classList.remove('container--is-visible');
+                  // Rotar la flecha hacia arriba cuando se cierran otros submenús
+                  openSubmenu.previousElementSibling.querySelector('i').classList.remove('rotate-down');
+                });
+                submenu.classList.add('container--is-visible');
+                // Rotar la flecha hacia arriba cuando el submenú se muestra
+                this.querySelector('i').classList.add('rotate-down');
+              }
+            }
+          });
+        });
       });
-    });
-  });
-</script>
-  <!-- End Navigation Bar -->
+    </script>
+    <!-- End Navigation Bar -->
 
-  
+
 
 
 
 
     <br>
     <br>
-    
+
 
     <div id="content">
       <h1 class="msjBienvenido">Bienvenido</h1>
@@ -186,7 +205,16 @@
       <hr>
       <p class="cop">My Nomina 2024 | All Rigths Reserved</p>
     </footer>
-  
+  </div>
+
+  <script>
+    // Espera 3 segundos y luego muestra el contenido principal
+    setTimeout(function() {
+      document.querySelector('.load').style.display = 'none'; // Oculta la animación de carga
+      document.getElementById('main-content').style.display = 'block'; // Muestra el contenido principal
+    }, 3000); // 3000 milisegundos = 3 segundos
+  </script>
+
 </body>
 <script src="JS/script.js"></script>
 

@@ -10,7 +10,7 @@
     opacity: 0;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 110vh;
     width: 100%;
     margin-top: 70px;
     margin-left: 50px;
@@ -73,5 +73,50 @@
     .cerrar-modal {
         margin-left: auto; /* Alinear a la derecha */
         margin-right: auto; /* Alinear a la izquierda */
+    }
+}
+/*BOTON PDF*/
+.btnpdf{
+    display: flex;
+    align-items: center;
+    /*centra horizontalmente*/
+    padding: 10px 20px;
+    /* Ajusta el relleno */
+    border: none;
+    /* Elimina el borde */
+    background-color: #FA289E;
+    margin-left: 40%;/*margen hacia la derecha*/
+    margin-top: 20px;
+    /* Color de fondo */
+    color: #fff;
+    /* Color de texto */
+    border-radius: 5px;
+    /* Agrega bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor*/
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1)  
+}
+.btnpdf:hover{
+    background-color: transparent; /* Cambio a fondo transparente */
+    border: 2px solid #FA289E; /* Añade el estilo de borde */
+    color: #FA289E;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1)
+}
+.linkpdf{
+    text-decoration: none;
+    color: #fff;
+    margin-left: 2px;
+}
+.linkpdf:hover{
+    text-decoration: none;
+    color: #FA289E;
+}
+@media screen and (max-width: 768px) {
+    #pdf{
+        right: 50px;
     }
 }

@@ -6,5 +6,5 @@ function generarLiquidarPDF() {
     const Interes = document.getElementById('interesesCesantiasTotalResult').innerText;
     const Cesantias = document.getElementById('cesantiasTotalResult').innerText;
 
-    window.location.href = `../Vista/liquidar_pdf.php?resultadoTotal=${resultadoTotal}&Dias=${Dias}&Vacaciones=${Vacaciones}&Prima=${Prima }&Interes=${Interes}&Cesantias=${Cesantias}`;
+    window.location.href = `../Vista/liquidar.php?resultadoTotal=${resultadoTotal}&Dias=${Dias}&Vacaciones=${Vacaciones}&Prima=${Prima }&Interes=${Interes}&Cesantias=${Cesantias}`;
 }

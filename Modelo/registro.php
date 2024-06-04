@@ -20,7 +20,7 @@ try{
   if ($stmt->execute()) {
     $message = '<span style="color: white;text-align: center; fonnt-size:25px; font-weight: bold;">Usuario creado correctamente</span>';
   } else {
-    $message = 'Lo siento, no se puedo crear su cuenta, verifique nuevamente';
+    $message = 'Lo siento, no se pudo crear su cuenta, verifique nuevamente';
   }
 }catch (PDOException $e){
   $message = 'Error al ejecutar la consulta' . $e->getMessage();
