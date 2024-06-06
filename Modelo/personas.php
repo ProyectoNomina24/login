@@ -189,7 +189,7 @@ if (isset($_SESSION['usuario_id'])) {
             setTimeout(function() {
                 document.querySelector('.load').style.display = 'none'; // Oculta la animación de carga
                 document.getElementById('main-content').style.display = 'block'; // Muestra el contenido principal
-            }, 3000); // 3000 milisegundos = 3 segundos
+            }, 1000); // segundos
         </script>
         <script src="/menu.js"></script>
 </body>

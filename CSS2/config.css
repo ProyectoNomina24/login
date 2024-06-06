@@ -285,7 +285,7 @@ input[type=text]:focus {
     font-family: 'Ubuntu', sans-serif;
     width: 950px;
     height: 1725px;
-    margin: 6em auto;
+    margin: 3em auto;
 }
 
 /*********************************************** HEADER ***********************************************/
@@ -345,7 +345,7 @@ header {
 
 .profile-menu {
     float: right;
-    height: 80px;
+    height: 90px;
     padding-right: 20px;
 }
 
@@ -381,7 +381,6 @@ header {
     background: #394264;
     border-radius: 5px;
 }
-
 /******************************************** LEFT CONTAINER *****************************************/
 .left-container {}
 
@@ -1050,6 +1049,10 @@ p.center-date {
     margin-right: 10px;
 }
 
+.add-event button {
+    position: relative;
+}
+
 .calendar-day {
     height: 320px;
     background: #3468af;
@@ -1092,6 +1095,7 @@ p.center-date {
 .calendar {
     margin: 22px 15px;
     text-align: center;
+    color: #fff;
 }
 
 .calendar a {
@@ -1114,4 +1118,103 @@ p.center-date {
     line-height: 30px;
     background: #e64c65;
     border-radius: 100%;
+}
+
+/* Estilos generales para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-container {
+        width: 50%;
+        height: 80px;
+        padding: 0;
+        float: none;
+        padding-bottom: 5px;
+    }
+
+    .os-percentages {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+    }
+
+    .menu ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    .menu ul li {
+        float: none;
+        /* Elimina el float */
+        width: 100%;
+        /* Asegúrate de que ocupe el 100% del ancho */
+    }
+
+    .menu ul li a {
+        padding: 15px;
+        text-align: center;
+        display: block;
+
+    }
+
+    .donut-chart-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .line-chart-block {
+        top: 80px;
+        margin-top: 10px;
+    }
+
+    .grafico {
+        display: flex;
+        margin-top: 50px;
+
+    }
+
+    .line-chart-block,
+    .calendar-block {
+        padding: 0 10px;
+        display: block;
+    }
+    .middle-container{
+        width: 50%;
+        margin-left: 0;
+        margin-top: 50px;
+    }
+
+    .social-block,
+    .weather-block,
+    .quote-block,
+    .events-block,
+    .os-usage,
+    .profile-block {
+        margin-bottom: 20px;
+        width: 100%;
+        /* Asegúrate de que ocupe el 100% del ancho */
+    }
+    .right-container{
+        margin-top: 20px;
+        width: 50%;
+    }
+    input[type=email]{
+        width: 90%;
+    }
+    input[type=password]{
+        width: 90%;
+    }
+    .calendar,.days-week{
+        flex-direction: column;
+        width: 90%;
+    }
+    
+
 }

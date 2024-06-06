@@ -88,64 +88,64 @@ if (isset($_SESSION['usuario_id'])) {
 
 
     <!--INICIO CALCULADORA-->
-    <div id="contenido1">
-      <nav class="calc">
-        <div id="formulario">
-          <i class="calk fas fa-sack-dollar">
-            <span>Liquidar</span>
-          </i>
-          <label for="fechaInicio">Fecha de Inicio:</label>
-          <input type="date" id="fechaInicio">
 
-          <label for="fechaFinal">Fecha Final:</label>
-          <input type="date" id="fechaFinal">
+    <nav class="calc">
+      <div id="formulario">
+        <i class="calk fas fa-sack-dollar">
+          <span>Liquidar</span>
+        </i>
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" id="fechaInicio">
 
-          <label for="auxilioTransporte">Auxilio de Transporte:</label>
-          <input type="number" id="auxilioTransporte" placeholder="Ingrese el Aux de Transporte">
+        <label for="fechaFinal">Fecha Final:</label>
+        <input type="date" id="fechaFinal">
 
-          <label for="pagosExtras">Pagos extras:</label>
-          <input type="number" id="pagosExtras" placeholder="Ingrese sus pagos extras">
+        <label for="auxilioTransporte">Auxilio de Transporte:</label>
+        <input type="number" id="auxilioTransporte" placeholder="Ingrese el Aux de Transporte">
 
-          <label for="salarioMensual">Salario Mensual:</label>
-          <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
+        <label for="pagosExtras">Pagos extras:</label>
+        <input type="number" id="pagosExtras" placeholder="Ingrese sus pagos extras">
 
-          <button class="btn-cal" id="open" onclick="calcularNomina(); manejarModal();">Calcular Nómina</button>
+        <label for="salarioMensual">Salario Mensual:</label>
+        <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual">
 
+        <button class="btn-cal" id="open" onclick="calcularNomina(); manejarModal();">Calcular Nómina</button>
+
+      </div>
+
+
+      <div class="modal-container" id="resultados">
+        <div class="modal">
+          <h2>Resultados</h2>
+          <div id="diasvacaciones"></div>
+          <table id="tablaResultados" style="border-collapse: collapse;">
+            <thead>
+              <tr>
+                <th>Cesantías</th>
+                <th>Intereses sobre Cesantías</th>
+                <th>Prima de Servicios</th>
+                <th>Vacaciones</th>
+                <th>Dias Vacaciones</th>
+                <th>Total a Pagar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="cesantiasTotalResult"></td>
+                <td id="interesesCesantiasTotalResult"></td>
+                <td id="primaServiciosTotalResult"></td>
+                <td id="vacacionesTotalResult"></td>
+                <td id="diasresultado"></td>
+                <td id="salarioTotalResult"></td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btnpdf" id="pdf"><i class="fa-solid fa-file-export"><a class="linkpdf" href="../Vista/liquidar.php" onclick="generarLiquidarPDF()" target="_blank">Exportar PDF</a></i></button>
+          <button class="cerrar-modal" id="btn-close">Cerrar</button>
         </div>
+      </div>
+    </nav>
 
-
-        <div class="modal-container" id="resultados">
-          <div class="modal">
-            <h2>Resultados</h2>
-            <div id="diasvacaciones"></div>
-            <table id="tablaResultados" style="border-collapse: collapse;">
-              <thead>
-                <tr>
-                  <th>Cesantías</th>
-                  <th>Intereses sobre Cesantías</th>
-                  <th>Prima de Servicios</th>
-                  <th>Vacaciones</th>
-                  <th>Dias Vacaciones</th>
-                  <th>Total a Pagar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td id="cesantiasTotalResult"></td>
-                  <td id="interesesCesantiasTotalResult"></td>
-                  <td id="primaServiciosTotalResult"></td>
-                  <td id="vacacionesTotalResult"></td>
-                  <td id="diasresultado"></td>
-                  <td id="salarioTotalResult"></td>
-                </tr>
-              </tbody>
-            </table>
-            <button class="btnpdf" id="pdf"><i class="fa-solid fa-file-export"><a class="linkpdf" href="../Vista/liquidar.php"  onclick="generarLiquidarPDF()" target="_blank">Exportar PDF</a></i></button>
-            <button class="cerrar-modal" id="btn-close">Cerrar</button>
-          </div>
-        </div>
-      </nav>
-    </div>
 
   </div>
 
@@ -159,7 +159,7 @@ if (isset($_SESSION['usuario_id'])) {
     setTimeout(function() {
       document.querySelector('.load').style.display = 'none'; // Oculta la animación de carga
       document.getElementById('main-content').style.display = 'block'; // Muestra el contenido principal
-    }, 3000); // 3000 milisegundos = 3 segundos
+    }, 1000); //  segundos
   </script>
 </body>
 

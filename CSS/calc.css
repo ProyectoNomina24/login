@@ -4,6 +4,7 @@ body{
 }
 .calc {
   display: flex;
+  background: #fff;
   position: fixed;
   justify-content: center;
   /* Centra horizontalmente */
@@ -18,15 +19,15 @@ body{
   max-width: 300px;
   /* Define un ancho máximo */
   margin-top: 10px;
-  padding-top: 5px;
   margin-left: 42%;
   font-weight: bold;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  height: 500px;
+  padding-bottom: 0;
 }
 .calk{
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
   margin-left: 50px;
 }
 #formulario {
@@ -35,6 +36,8 @@ body{
   border-radius: 10px;
   width: 290px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 500px;
+  
 }
 
 label {

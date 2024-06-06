@@ -13,10 +13,10 @@
   /* Agrega bordes redondeados */
   max-width: 300px;
   /* Define un ancho máximo */
-  margin-top: 5px;
-  padding-top: 5px;
+  margin-top: 10px;
   margin-left: 42%;
   font-weight: bold;
+  background: #fff;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 .calkDos{
