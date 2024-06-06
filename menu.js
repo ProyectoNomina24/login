@@ -8,7 +8,7 @@ function cargarMenu() {
                     <img src="../imagenes/moneda.png" alt="Logo">
                 </div>
                 <li>
-                    <a class="links" href="#" onclick="mostrarContenido('contenido1')">
+                    <a class="links" href="/Modelo/navb.php">
                         <i class="fas fa-sack-dollar"></i>
                         <span>Liquidar</span>
                     </a>
@@ -20,7 +20,7 @@ function cargarMenu() {
                     </a>
                 </li>
                 <li>
-                    <a class="links" href="#" onclick="mostrarContenido('contenido2')">
+                    <a class="links" href="/Modelo/navb2.php">
                         <i class="fa-solid fa-money-bill-wave"></i>
                         <span>Calcular</span>
                     </a>
@@ -32,13 +32,13 @@ function cargarMenu() {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/Modelo/personas.php">
                         <i class="fa-solid fa-user-group"></i>
                         <span>Personas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/Modelo/config.php">
                         <i class="fas fa-cog"></i>
                         <span>Configuración</span>
                     </a>
@@ -78,5 +78,5 @@ if (menuButton) {
 
 // Llamar a la función cargarMenu después de 3 segundos al cargar la página
 window.onload = function() {
-    setTimeout(cargarMenu, 3000);
+    setTimeout(cargarMenu, 0);
 };

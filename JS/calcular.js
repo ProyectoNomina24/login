@@ -20,6 +20,8 @@ function calcularNomina() {
     }
   
     const diasTrabajados = (fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24);
+    const diasVacacionesPorAno = 15; // Mínimo de días de vacaciones en Colombia
+    const diasVacaciones = (diasTrabajados / 360) * diasVacacionesPorAno;
     const cesantias = ((salarioMensual + auxilioTransporte) * diasTrabajados) / 360;
     const interesesCesantias = (cesantias * diasTrabajados * 0.12) / 360;
     const primaServicios = (salarioMensual * diasTrabajados) / 360;
@@ -30,9 +32,11 @@ function calcularNomina() {
   document.getElementById("interesesCesantiasTotalResult").innerText = "$ " + interesesCesantias.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   document.getElementById("primaServiciosTotalResult").innerText = "$ " + primaServicios.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   document.getElementById("vacacionesTotalResult").innerText = "$ " + vacaciones.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  document.getElementById("diasresultado").textContent =  + diasVacaciones.toFixed(2);
   document.getElementById("salarioTotalResult").innerText = "$ " + salarioTotalGlobal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   
-  console.log(cesantias);
+ 
   
   }
   

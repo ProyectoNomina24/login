@@ -1,3 +1,7 @@
+body{
+  background: linear-gradient(45deg, rgb(252, 250, 252), rgb(185, 188, 223), rgb(97, 143, 228));
+
+}
 .calc {
   display: flex;
   position: fixed;
