@@ -1,4 +1,6 @@
-
+body{
+    background: linear-gradient(to bottom, #003366,#00b8eb);
+}
 section {
     display: flex;
     align-items: center;
@@ -6,7 +8,7 @@ section {
     padding: 50px 10%;
     box-sizing: border-box;
     min-height: 100vh;
-    background: linear-gradient(to right, #da76ff, #9e7bfe, #f0d2ff);
+    background: linear-gradient(to bottom, #003366,#00b8eb);
 }
 
 
@@ -97,7 +99,7 @@ footer {
     flex: 1;
     padding: 20px;
     max-width: 700px;
-    background: linear-gradient(to right, #da76ff, #9e7bfe, #f0d2ff);
+    background: linear-gradient(to bottom, #003366,#00b8eb);
 }
 
 #section2 h1 {
@@ -138,7 +140,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to right, #da76ff, #9e7bfe, #f0d2ff);
+    background: linear-gradient(to bottom, #003366,#00b8eb);
     padding: 50px;
     margin: 0 auto;
     max-width: 1200px;
