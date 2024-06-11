@@ -43,12 +43,11 @@ try{
     <br>
     <br>
   <div class="login-box">
-
     <h2>Registra tu usuario</h2>
-    <br>
     <div class="login-link">
       <p>O <a href="../Modelo/login.php">Inicia sesión</a></p>
       </div>
+      <br>
       <br>
       <form id="registrationForm" action="registro.php" method="POST">
   <div class="user-box">

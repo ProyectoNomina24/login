@@ -1,44 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/calc.css">
-    <title>Calculadora de Nómina</title>
 </head>
+<link rel="stylesheet" href="CSS/calc.css">
+<link rel="stylesheet" href="CSS/calcDos.css">
+<link rel="stylesheet" href="CSS/resultados.css">
+<link rel="stylesheet" href="CSS2/estilosModal.css">
+<link rel="stylesheet" href="CSS2/modalDos.css">
+
 <body>
-<nav class="calc">
-<h1>Calculadora de Nómina</h1>
-<div id="formulario">
-    <h2>Datos del Empleado</h2>
-    <label for="fechaInicio">Fecha de Inicio:</label>
-    <input type="date" id="fechaInicio" required>
 
-    <label for="fechaFinal">Fecha Final:</label>
-    <input type="date" id="fechaFinal" required> 
-    <label for="salarioMensual">Salario Mensual:</label>
-    <input type="number" id="salarioMensual" placeholder="Ingrese el salario mensual" required>
+    <div id="contenido2">
+        <nav class="calcDos">
+            <div id="formulario">
+                <i class="calkDos fa-solid fa-money-bill-wave"></i>
+                <span>Calcular</span>
+                <form id="formularioDos">
+                    <label for="Inicio">Fecha de Inicio:</label>
+                    <input type="date" id="Inicio" name="Inicio" required>
 
-    <label for="auxilioTransporte">Auxilio de Transporte:</label>
-    <input type="number" id="auxilioTransporte" placeholder="Ingrese el auxilio de transporte" required>
+                    <label for="Final">Fecha Final:</label>
+                    <input type="date" id="Final" name="Final" required>
 
-    <label for="pagosExtras">Pagos Extras:</label>
-    <input type="number" id="pagosExtras" placeholder="Ingrese los pagos extras">
+                    <label for="salario">Salario Mensual:</label>
+                    <input type="number" id="salario" name="salario" placeholder="Ingrese el salario mensual" required>
 
-    <label for="otrasDeducciones">Otras Deducciones:</label>
-    <input type="number" id="otrasDeducciones" placeholder="Ingrese sus otras deducciones">
+                    <label for="auxilio">Auxilio de Transporte:</label>
+                    <input type="number" id="auxilio" name="auxilio" placeholder="Ingrese el auxilio de transporte">
 
-    <button onclick="calcularMiNomina()">Calcular Nómina</button>
-</div>
+                    <label for="Extras">Pagos Extras:</label>
+                    <input type="number" id="Extras" name="Extras" placeholder="Ingrese los pagos extras">
 
-<div id="resultados">
-    <h2>Resultado</h2>
-    <div id="salarioNetoResult"></div>
-</div>
-</nav>
-<script src="../JS/otro.js">
+                    <label for="btnOtrasDeducciones">Otras Deducciones:</label>
+                    <button id="btnOtrasDeducciones" onclick="mostrarPopup()">Agregar Otras Deducciones</button>
 
-</script>
+                    <button class="btn-liquidar" id="openDos" type="button"
+                        onclick="calcularNominaEj(); manejarModalDos();">Calcular Nómina</button>
+                </form>
+                <div class="modalDos-container" id="resultadoDos">
+                    <div class="modalDos">
+                        <div id="resultado"></div>
 
+                        <button class="btnpdf2" id="pdf" onclick="generarPDF()"><i class="fa-solid fa-file-export"></i><a class="linkpdf"
+                                href="#">Exportar PDF</a></button>
+                        <button class="cerrar-modalDos" id="btn-cerrar">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="cerrarPopup()">&times;</span>
+            <h2>Ingrese Otras Deducciones</h2>
+            <form id="formOtrasDeducciones">
+                <label for="horasExtrasDiurnas">Horas Extras Diurnas:</label>
+                <input type="number" id="horasExtrasDiurnas" name="horasExtrasDiurnas">
+
+                <label for="horasExtrasNocturnas">Horas Extras Nocturnas:</label>
+                <input type="number" id="horasExtrasNocturnas" name="horasExtrasNocturnas">
+
+                <label for="horasExtrasDominicales">Horas Extras Dominicales:</label>
+                <input type="number" id="horasExtrasDominicales" name="horasExtrasDominicales">
+
+                <label for="horasExtrasNocturnasDominicales">Horas Extras Nocturnas Dominicales:</label>
+                <input type="number" id="horasExtrasNocturnasDominicales" name="horasExtrasNocturnasDominicales">
+
+                <label for="otrosDescuentos">Otros Descuentos:</label>
+                <input type="number" id="otrosDescuentos" name="otrosDescuentos">
+
+                <label for="otrosDevengados">Otros Devengados:</label>
+                <input type="number" id="otrosDevengados" name="otrosDevengados">
+
+                <label for="Deducciones">Otras Deducciones:</label>
+                <input type="number" id="Deducciones" name="Deducciones" placeholder="Ingrese sus otras deducciones">
+
+
+                <button type="button" onclick="guardarDatos()">Guardar</button>
+            </form>
+        </div>
+    </div>
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .popup-content {
+            background-color: white;
+            margin: 20% auto;
+            padding: 20px;
+            width: 60%;
+            max-width: 500px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .close {
+            float: right;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: red;
+        }
+    </style>
+
+    <script>
+        let salarioMensual = 0;
+        let auxilioTransporte = 0;
+        let pagosExtras = 0;
+    
+        function calcularNominaEj() {
+            const fechaInicio = new Date(document.getElementById('Inicio').value);
+            const fechaFinal = new Date(document.getElementById('Final').value);
+            salarioMensual = parseFloat(document.getElementById('salario').value);
+            auxilioTransporte = parseFloat(document.getElementById('auxilio').value) || 0;
+            pagosExtras = parseFloat(document.getElementById('Extras').value) || 0;
+            const horasExtrasDiurnas = parseFloat(document.getElementById('horasExtrasDiurnas').value) || 0;
+            const horasExtrasNocturnas = parseFloat(document.getElementById('horasExtrasNocturnas').value) || 0;
+            const horasExtrasDominicales = parseFloat(document.getElementById('horasExtrasDominicales').value) || 0;
+            const horasExtrasNocturnasDominicales = parseFloat(document.getElementById('horasExtrasNocturnasDominicales').value) || 0;
+            const otrosDescuentos = parseFloat(document.getElementById('otrosDescuentos').value) || 0;
+            const otrosDevengados = parseFloat(document.getElementById('otrosDevengados').value) || 0;
+    
+            if (isNaN(fechaInicio.getTime()) || isNaN(fechaFinal.getTime())) {
+                document.getElementById('resultado').innerText = 'Por favor, introduce fechas válidas.';
+                return;
+            }
+    
+            // Calcula los días trabajados
+            const diasTrabajados = Math.ceil((fechaFinal - fechaInicio) / (1000 * 60 * 60 * 24));
+    
+            // Calcula el salario bruto sumando el salario mensual y el auxilio de transporte
+            const salarioBruto = salarioMensual + auxilioTransporte;
+    
+            // Calcula las horas extras diurnas, nocturnas, dominicales y nocturnas dominicales
+            const totalHorasExtras = horasExtrasDiurnas + horasExtrasNocturnas + horasExtrasDominicales + horasExtrasNocturnasDominicales;
+    
+            // Calcula el salario neto sumando el salario bruto, los pagos extras, las horas extras y restando los otros descuentos y otros devengados
+            const salarioNeto = ((salarioBruto + pagosExtras + totalHorasExtras) - otrosDescuentos) / 2 + otrosDevengados;
+    
+            // Muestra el resultado
+            document.getElementById('resultado').innerHTML = `<p>Total a Pagar: $${salarioNeto.toFixed(2)}</p>`;
+        }
+    </script>
+
+    <script>
+        function generarPDF() {
+            // Obtener el total a pagar
+            const totalAPagar = document.getElementById('resultado').innerText.split(': ')[1];
+            const Salario = salarioMensual;
+            const Auxiliot = auxilioTransporte;
+            const Extra = pagosExtras;
+            const Deduccion = document.getElementById('Deducciones').value;
+
+            // Redirigir al archivo PHP con el total y el nombre de usuario como parámetros GET
+            window.location.href = `Vista/generar_pdf.php?totalAPagar=${totalAPagar}&Salario=${Salario}&Auxiliot=${Auxiliot}&Extra=${Extra}&Deduccion=${Deduccion}`;
+        }
+    </script>
+    <script>
+        function mostrarPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function cerrarPopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function guardarDatos() {
+            // Obtener los valores ingresados por el usuario
+            const horasExtrasDiurnas = parseFloat(document.getElementById('horasExtrasDiurnas').value) || 0;
+            const horasExtrasNocturnas = parseFloat(document.getElementById('horasExtrasNocturnas').value) || 0;
+            const horasExtrasDominicales = parseFloat(document.getElementById('horasExtrasDominicales').value) || 0;
+            const horasExtrasNocturnasDominicales = parseFloat(document.getElementById('horasExtrasNocturnasDominicales').value) || 0;
+            const otrosDescuentos = parseFloat(document.getElementById('otrosDescuentos').value) || 0;
+            const otrosDevengados = parseFloat(document.getElementById('otrosDevengados').value) || 0;
+
+            // Aquí puedes realizar los cálculos necesarios o enviar los datos al backend para su procesamiento
+
+            // Cerrar el popup después de guardar los datos
+            cerrarPopup();
+        }
+    </script>
+
+    <script src="JS/modalDos.js"></script>
 </body>
+
 </html>

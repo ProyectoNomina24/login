@@ -11,7 +11,7 @@ body {
 }
 
 .title {
-    color: #25283d;
+    color: #fff;
     font-size: 2.8em;
     margin-bottom: 30px;
 }
@@ -196,7 +196,7 @@ body {
 }
 
 .accordion {
-    width: 50%;
+    width: 80%;
     margin: auto;
 }
 

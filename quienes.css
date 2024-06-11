@@ -24,7 +24,7 @@ section {
 .content {
     flex: 1;
     padding: 20px;
-    color: black;
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,8 +34,11 @@ section {
 .main-title {
     font-size: 28px;
     line-height: 30px;
-    color: #3F30C7;
+    color: #fff;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-description {
@@ -69,13 +72,6 @@ section {
     font-size: 1.1em;
 }
 
-footer {
-    background: #333333a1;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-}
-
 
 /* SECCION 2*/
 
@@ -105,7 +101,7 @@ footer {
 #section2 h1 {
     font-size: 2.2em;
     font-weight: bold;
-    color: #000000;
+    color: #fff;
 }
 
 #section2 p {
@@ -159,7 +155,7 @@ footer {
 
 #section3 h1 {
     font-size: 2.5em;
-    color: #000000;
+    color: #fff;
 }
 
 #section3 h2 {
