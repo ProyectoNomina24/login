@@ -1,15 +1,22 @@
 <?php
 
-$server = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'mynomina';
+// Obtener credenciales desde variables de entorno
+$dbname = getenv('SUPABASE_DB_NAME');
+$user = getenv('SUPABASE_DB_USER');
+$password = getenv('SUPABASE_DB_PASS');
+
+
+if ( !$dbname || !$user || !$password) {
+    die("Credenciales de Supabase no configuradas correctamente.");
+}
 
 try {
-  $conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+    $conn = pg_connect("dbname=$dbname user=$user password=$password");
+    if (!$conn) {
+        die("Error de conexión a la base de datos: " . pg_last_error());
+    }
 } catch (PDOException $e) {
-  die('Connection Failed: ' . $e->getMessage());
+    die('Error de conexión a la base de datos: ' . $e->getMessage());
 }
 
 ?>
-
