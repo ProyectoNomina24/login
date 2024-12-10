@@ -1,0 +1,10 @@
+name: My Nomina
+env:
+    SUPABASE_DB_NAME: 
+    SUPABASE_DB_USER: 
+    SUPABASE_DB_PASS: 
+services:
+  web:
+    type: web
+    build_command: composer install
+    start_command: php -S 0.0.0.0:8080 -t public
